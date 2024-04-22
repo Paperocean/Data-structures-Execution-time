@@ -4,6 +4,7 @@
 #include <vector>
 #include "array.h"
 #include "arrayMalloc.h"
+#include "linkedList.h"
 using namespace std;
 
 long long pushTimeMeasureMallocArray(int value) {
@@ -47,7 +48,8 @@ long long pushTimeMeasureVector(int value) {
 
 int main()
 {
-	int count = 0;
+	// ARRAY
+	/*int count = 0;
 	int tries = 100;
 	int highestTime[3] = {};
 
@@ -71,5 +73,18 @@ int main()
 	}
 
 	for(int i = 0; i < 3; i++)
-		cout << highestTime[i] << endl;
+		cout << highestTime[i] << endl;*/
+
+	// LINKED LIST
+	LinkedList list;
+	for (int i = 0; i < 10; i++)
+		list.push_front(i);
+	list.display();
+
+	cout << endl;
+
+	list.reverse();
+	list.display();
+	getchar();
+	return 0;
 }

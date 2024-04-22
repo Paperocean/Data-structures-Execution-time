@@ -130,14 +130,17 @@
   <ItemGroup>
     <ClCompile Include="array.cpp" />
     <ClCompile Include="arrayMalloc.cpp" />
+    <ClCompile Include="linkedList.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />
     <ClInclude Include="arrayMalloc.h" />
+    <ClInclude Include="LinkedList - instructions.txt" />
+    <ClInclude Include="linkedList.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="array-instruction.txt" />
+    <Text Include="Array - instructions.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

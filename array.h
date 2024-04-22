@@ -12,9 +12,19 @@ private:
 	void resize(int new_capacity);
 public:
 	Array();
-	int getSize();
+	Array(int len);
+	int get_size();
+	int get_capacity();
+	bool is_empty();
+	int at(int index);
 	void push(int item);
+	void insert(int index, int item);
+	void prepend(int item);
 	int pop();
+	void delete_item(int index);
+	void remove(int item);
+	int find(int item);
+	void display();
 	~Array();
 };
 

@@ -19,6 +19,12 @@
     <Filter Include="Pliki źródłowe\Array">
       <UniqueIdentifier>{09fce8fb-7ea1-43d7-b4db-4df5d1f760b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\LinkedList">
+      <UniqueIdentifier>{96c1025c-9f11-402e-8d9b-09e5ff722ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\LinkedList">
+      <UniqueIdentifier>{d7262e1e-2f69-4051-b3d5-3701d260a81d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,6 +36,9 @@
     <ClCompile Include="arrayMalloc.cpp">
       <Filter>Pliki źródłowe\Array</Filter>
     </ClCompile>
+    <ClCompile Include="linkedList.cpp">
+      <Filter>Pliki źródłowe\LinkedList</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayMalloc.h">
@@ -38,9 +47,15 @@
     <ClInclude Include="array.h">
       <Filter>Pliki nagłówkowe\Array</Filter>
     </ClInclude>
+    <ClInclude Include="linkedList.h">
+      <Filter>Pliki nagłówkowe\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList - instructions.txt">
+      <Filter>Pliki nagłówkowe\LinkedList</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="array-instruction.txt">
+    <Text Include="Array - instructions.txt">
       <Filter>Pliki nagłówkowe\Array</Filter>
     </Text>
   </ItemGroup>
