@@ -47,14 +47,14 @@ auto timeMeasureVector(int value) {
 int main()
 {
 	int count = 0;
-	int heighest = 0;
+	int highest = 0;
 
 	for (int i = 0; i < 100; i++) {
 		auto malArrayTime = timeMeasureMallocArray(i);
 		auto arrayTime = timeMeasureArray(i);
 		if (malArrayTime < arrayTime) {
-			heighest = i;
-			cout << "I = " << heighest << endl;
+			highest = i;
+			cout << "I = " << highest << endl;
 			cout << "Time taken by ArrayMalloc: " << timeMeasureMallocArray(i) << " ns" << endl;
 			cout << "Time taken by Array: " << timeMeasureArray(i) << " ns" << endl;
 			cout << endl;
@@ -62,8 +62,8 @@ int main()
 		}
 		else count++;
 
-		if (count == 5 and heighest != 0) {
-			cout << "The heighest possible len of nums to add: " << heighest;
+		if (count == 5 and highest != 0) {
+			cout << "The highest possible len of nums to add: " << highest;
 			break;
 		}
 		//cout << "Time taken by Vector: " << timeMeasureVector(i) << " ns" << endl;
