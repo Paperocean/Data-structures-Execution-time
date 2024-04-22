@@ -16,16 +16,22 @@
     <Filter Include="Pliki nagłówkowe\Array">
       <UniqueIdentifier>{2e438a30-a5d8-437d-b2da-ca025243de41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\Array">
+      <UniqueIdentifier>{09fce8fb-7ea1-43d7-b4db-4df5d1f760b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="arrayMalloc.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="array.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\Array</Filter>
+    </ClCompile>
+    <ClCompile Include="arrayMalloc.cpp">
+      <Filter>Pliki źródłowe\Array</Filter>
+    </ClCompile>
+    <ClCompile Include="measureFunctions.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClCompile>
     <ClCompile Include="measureFunctions.cpp">
       <Filter>Pliki źródłowe</Filter>

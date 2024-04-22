@@ -24,6 +24,7 @@
     <ProjectGuid>{cb9df2c9-d6e1-4bd7-a15d-5ef9606400bd}</ProjectGuid>
     <RootNamespace>arrayMalloc</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>dataStructures</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -131,6 +132,7 @@
     <ClCompile Include="arrayMalloc.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="measureFunctions.cpp" />
+    <ClCompile Include="measureFunctions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />
