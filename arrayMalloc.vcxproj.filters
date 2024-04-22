@@ -30,12 +30,6 @@
     <ClCompile Include="arrayMalloc.cpp">
       <Filter>Pliki źródłowe\Array</Filter>
     </ClCompile>
-    <ClCompile Include="measureFunctions.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClCompile>
-    <ClCompile Include="measureFunctions.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayMalloc.h">

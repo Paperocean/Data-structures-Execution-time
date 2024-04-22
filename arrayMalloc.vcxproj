@@ -131,8 +131,6 @@
     <ClCompile Include="array.cpp" />
     <ClCompile Include="arrayMalloc.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="measureFunctions.cpp" />
-    <ClCompile Include="measureFunctions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />

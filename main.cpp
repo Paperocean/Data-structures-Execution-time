@@ -1,31 +1,75 @@
 ﻿#include <iostream>
 #include <chrono>
 #include <vector>
-#include "measureFunctions.h"
+#include <vector>
+#include "array.h"
+#include "arrayMalloc.h"
 using namespace std;
+
+long long pushTimeMeasureMallocArray(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		ArrayMalloc arr;
+		for (size_t j = 0; j < value; j++) {
+			arr.push(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+
+long long pushTimeMeasureArray(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		Array arr;
+		for (size_t j = 0; j < value; j++) {
+			arr.push(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+
+long long pushTimeMeasureVector(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		vector<int> arr;
+		for (size_t j = 0; j < value; j++) {
+			arr.push_back(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
 
 int main()
 {
 	int count = 0;
-	int highest = 0;
+	int tries = 100;
+	int highestTime[3] = {};
 
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < tries; i++) {
 		long long malArrayTime = pushTimeMeasureMallocArray(i);
 		long long arrayTime = pushTimeMeasureArray(i);
+		long long vectorTime = pushTimeMeasureVector(i);
+
 		if (malArrayTime < arrayTime) {
-			highest = i;
-			cout << "I = " << highest << endl;
-			cout << "Time taken by ArrayMalloc: " << malArrayTime << " ns" << endl;
-			cout << "Time taken by Array: " << arrayTime << " ns" << endl;
-			cout << endl;
+			highestTime[0] = malArrayTime;
+			highestTime[1] = arrayTime;
+			if(vectorTime < malArrayTime)
+				highestTime[2] = vectorTime;
 			count = 0;
 		}
 		else count++;
 
-		if (count == 5 and highest != 0) {
-			cout << "The highest possible len of nums to add: " << highest;
+		if (count == 5) {
 			break;
 		}
-		//cout << "Time taken by Vector: " << timeMeasureVector(i) << " ns" << endl;
 	}
+
+	for(int i = 0; i < 3; i++)
+		cout << highestTime[i] << endl;
 }
