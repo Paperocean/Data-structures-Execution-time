@@ -1,12 +1,12 @@
 ﻿#include <iostream>
 #include <chrono>
 #include <vector>
-#include <vector>
 #include "array.h"
 #include "arrayMalloc.h"
 #include "linkedList.h"
 using namespace std;
 
+// ARRAY
 long long pushTimeMeasureMallocArray(int value) {
 	auto start = chrono::high_resolution_clock::now();
 	for (size_t i = 0; i < 1000000; i++) {
@@ -19,7 +19,6 @@ long long pushTimeMeasureMallocArray(int value) {
 	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
 	return duration.count() / 1000000;
 }
-
 long long pushTimeMeasureArray(int value) {
 	auto start = chrono::high_resolution_clock::now();
 	for (size_t i = 0; i < 1000000; i++) {
@@ -32,7 +31,6 @@ long long pushTimeMeasureArray(int value) {
 	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
 	return duration.count() / 1000000;
 }
-
 long long pushTimeMeasureVector(int value) {
 	auto start = chrono::high_resolution_clock::now();
 	for (size_t i = 0; i < 1000000; i++) {
@@ -46,37 +44,44 @@ long long pushTimeMeasureVector(int value) {
 	return duration.count() / 1000000;
 }
 
+// LINKED LIST
+long long pushFTimeMeasureLinkedList(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		LinkedList list;
+		for (size_t j = 0; j < value; j++) {
+			list.push_front(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long pushBTimeMeasureLinkedList(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		LinkedList list;
+		for (size_t j = 0; j < value; j++) {
+			list.push_back(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+
 int main()
 {
 	// ARRAY
-	/*int count = 0;
-	int tries = 100;
-	int highestTime[3] = {};
+	/*Array arr;
+	for (int i = 0; i < 10; i++)
+		arr.push(i);
+	arr.display();
 
-	for (int i = 0; i < tries; i++) {
-		long long malArrayTime = pushTimeMeasureMallocArray(i);
-		long long arrayTime = pushTimeMeasureArray(i);
-		long long vectorTime = pushTimeMeasureVector(i);
-
-		if (malArrayTime < arrayTime) {
-			highestTime[0] = malArrayTime;
-			highestTime[1] = arrayTime;
-			if(vectorTime < malArrayTime)
-				highestTime[2] = vectorTime;
-			count = 0;
-		}
-		else count++;
-
-		if (count == 5) {
-			break;
-		}
-	}
-
-	for(int i = 0; i < 3; i++)
-		cout << highestTime[i] << endl;*/
+	cout << endl;*/
 
 	// LINKED LIST
-	LinkedList list;
+	/*LinkedList list;
 	for (int i = 0; i < 10; i++)
 		list.push_front(i);
 	list.display();
@@ -84,7 +89,50 @@ int main()
 	cout << endl;
 
 	list.reverse();
-	list.display();
+	list.display();*/
+
+	// TESTING TIMES
+	int count = 0;
+	int tries = 100;
+	int highestTime[4] = {};
+
+	for (int i = 0; i < tries; i++) {
+		long long malArrayTime = pushTimeMeasureMallocArray(i);
+		long long arrayTime = pushTimeMeasureArray(i);
+		long long vectorTime = pushTimeMeasureVector(i);
+		long long linkedListFTime = pushFTimeMeasureLinkedList(i);
+		long long linkedListBTime = pushBTimeMeasureLinkedList(i);
+
+		if (malArrayTime < arrayTime || linkedListFTime < malArrayTime) {
+			highestTime[0] = malArrayTime;
+			highestTime[1] = arrayTime;
+			highestTime[3] = linkedListFTime;
+			if(vectorTime < malArrayTime)
+				highestTime[2] = vectorTime;
+			count = 0;
+		}
+		else count++;
+
+		if (count == 10) {
+			break;
+		}
+	}
+
+	int highestTimeSize = sizeof(highestTime) / sizeof(highestTime[0]);
+	for (int i = 0; i < highestTimeSize; i++) {
+		if(i == 0)
+			cout << "ArrayMalloc: ";
+		else if (i == 1)
+			cout << "Array: ";
+		else if (i == 2)
+			cout << "Vector: ";
+		else if (i == 3)
+			cout << "LinkedListF: ";
+		else
+			cout << "Unknown: ";
+		cout << highestTime[i] << endl;
+	}
+
 	getchar();
 	return 0;
 }

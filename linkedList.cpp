@@ -48,7 +48,7 @@ int LinkedList::pop_front()
 {
 	if (size == 1) {
 		Node* tempNode = head;
-		delete[] head;
+		delete head;
 		size--;
 		return tempNode->data;
 	}
@@ -66,7 +66,11 @@ void LinkedList::push_back(int value)
 	Node* newNode = new Node;
 	newNode->data = value;
 	newNode->next = nullptr;
-	if(size == 1) {
+
+	if (size == 0) {
+		head = newNode;
+	}
+	else if(size == 1) {
 		head->next = newNode;
 	}
 	else {
@@ -74,32 +78,36 @@ void LinkedList::push_back(int value)
 		while (current->next != nullptr) {
 			current = current->next;
 		}
+		// current is the last node
 		current->next = newNode;
 	}
 	size++;
 }
 
-// check
-int LinkedList::pop_back()
-{
+int LinkedList::pop_back() {
 	if (size == 1) {
 		Node* tempNode = head;
-		delete[] head;
+		int data = tempNode->data;
+		delete head;
+		head = nullptr;
 		size--;
-		return tempNode->data;
+		return data;
 	}
 	else if (size > 1) {
 		Node* current = head;
 		Node* prev = nullptr;
+		Node* tempNode = nullptr;
+
 		while (current->next != nullptr) {
 			prev = current;
 			current = current->next;
 		}
-		delete[] current;
-		current = prev->next;
+		tempNode = current;
 		prev->next = nullptr;
+		int data = tempNode->data;
+		delete current;
 		size--;
-		return current->data;
+		return data;
 	}
 	return -1;
 }
@@ -145,11 +153,11 @@ void LinkedList::insert(int index, int value)
 
 		Node* current = head;
 		Node* prev = nullptr;
-		while (current->data != index) {
+		for (int i = 0; i < index; i++) {
 			prev = current;
 			current = current->next;
 		}
-		newNode->next = prev->next;
+		newNode->next = current;
 		prev->next = newNode;
 	}
 	size++;
@@ -183,47 +191,84 @@ void LinkedList::erase(int index)
 
 int LinkedList::value_n_from_end(int n)
 {
-	if (size == 1) {
-		return 0;
+	if (n >= size) {
+		cout << "Invalid index" << endl;
+		return -1;
 	}
+
+	Node* current = head;
+	for (int i = 0; i < size - n - 1; i++) {
+		current = current->next;
+	}
+	return current->data;
 }
 
 void LinkedList::reverse() {
 	if (head == nullptr || head->next == nullptr) {
-		// If the list is empty or has only one node, no need to reverse
 		return;
 	}
 
-	Node* prev = nullptr;
 	Node* current = head;
-	Node* nextNode = nullptr;
+	Node* prev = nullptr;
+	Node* next = nullptr;
 
 	while (current != nullptr) {
-		nextNode = current->next; // Store the next node
-		current->next = prev;     // Reverse the link
-
-		// Move pointers one position ahead
+		// Store next
+		next = current->next;
+		// Reverse current node's pointer
+		current->next = prev;
+		// Move pointers one position behind
 		prev = current;
-		current = nextNode;
+		current = next;
 	}
-
-	// After the loop, prev will be pointing to the new head of the reversed list
 	head = prev;
 }
 
 
 void LinkedList::display() {
 	Node* current = head;
-	while (current->next != nullptr) {
+	while (current != nullptr) {
 		cout << current->data << " ";
 		current = current->next;
 	}
 }
 
-LinkedList::~LinkedList()
+void LinkedList::remove_value(int value)
 {
-	while (pop_front());
+	if (size < 1) {
+		cout << "List is empty" << endl;
+		return;
+	}
+
+	if (head->data == value) {
+		pop_front();
+		return;
+	}
+	else {
+		Node* current = head;
+		Node* prev = nullptr;
+
+		while (current->next != nullptr) {
+			prev = current;
+			current = current->next;
+			if (current->data == value) {
+				prev->next = current->next;
+				delete current;
+				size--;
+				return;
+			}
+		}
+	}
 }
 
-
-
+LinkedList::~LinkedList() {
+	Node* current = head;
+	Node* next = nullptr;
+	while (current != nullptr) {
+		next = current->next;
+		delete current;
+		current = next;
+	}
+	head = nullptr;
+	size = 0;
+}
