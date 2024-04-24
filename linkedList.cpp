@@ -304,25 +304,22 @@ Node* LinkedList::returnHead()
 	return nullptr;
 }
 
-LinkedList* LinkedList::mergeList(LinkedList &l1, LinkedList &l2)
+void LinkedList::mergeList(LinkedList &l1, LinkedList &l2)
 {
-	size_t size = l1.getSize() + l2.getSize();
-	LinkedList* list = new LinkedList();
 	Node* head1 = l1.returnHead();
 	Node* head2 = l2.returnHead();
 
-	Node* current = nullptr;
-	current = head1;
-	while (current != nullptr) {
-		list->push_back(current->data);
-		current = current->next;
+	Node* currentCopy = nullptr;
+	currentCopy = head1;
+	while (currentCopy != nullptr) {
+		push_back(currentCopy->data);
+		currentCopy = currentCopy->next;
 	}
-	current = head2;
-	while (current != nullptr) {
-		list->push_back(current->data);
-		current = current->next;
+	currentCopy = head2;
+	while (currentCopy != nullptr) {
+		push_back(currentCopy->data);
+		currentCopy = currentCopy->next;
 	}
-	return list;
 }
 
 void LinkedList::removeTheNthNodeFromEnd(int n)
@@ -351,8 +348,47 @@ void LinkedList::removeTheNthNodeFromEnd(int n)
 void LinkedList::removeDuplicates()
 {
 	Node* current = head;
+	int arr[100] = {};
+	int i = 0;
+	while(current != nullptr) {
+		if (arr[current->data] >= 1) {
+			erase(i-1); /// why i -1 
+		}
+		arr[current->data]++;
+		current = current->next;
+		i++;
+	}
+}
 
-	while(current =)
+bool LinkedList::isEqual(LinkedList& list2) {
+	if (size != list2.getSize()) {
+		cout << "Size is different!" << endl;
+		return false;
+	}
+
+	Node* current = head;
+	Node* currentCopy = list2.returnHead();
+	while (current != nullptr) {
+		if (current->data != currentCopy->data)
+			return false;
+		current = current->next;
+		currentCopy = currentCopy->next;
+	}
+	return true;
+}
+
+bool LinkedList::isPalindrome()
+{
+	LinkedList ls;
+	Node* current = head;
+	while (current != nullptr) {
+		ls.push_back(current->data);
+		current = current->next;
+	}
+	reverse();
+	if (isEqual(ls))
+		return true;
+	return false;
 }
 
 LinkedList::~LinkedList() {

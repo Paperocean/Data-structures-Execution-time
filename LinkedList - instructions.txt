@@ -10,7 +10,7 @@ SOLVE IT:
 - delete the nth node from the end of a linked list. (+)
 - sort linked list
 - remove duplicates from a linked list.
-- check if a linked list is a palindrome.
+- check if a linked list is a palindrome. (+)
 - implement a stack using a linked list.
 - implement a queue using a linked list.
 - implement a linked list.

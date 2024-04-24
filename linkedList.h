@@ -2,6 +2,7 @@
 #define LINKED_LIST_H
 
 #include <iostream>
+#include <vector>
 
 struct Node {
 	Node* next;
@@ -33,9 +34,11 @@ public:
 	int findMiddleHare();
 	void reverse();
 	Node* returnHead();
-	LinkedList* mergeList(LinkedList &l1, LinkedList &l2);
+	void mergeList(LinkedList &l1, LinkedList &l2);
 	void removeTheNthNodeFromEnd(int n);
 	void removeDuplicates();
+	bool isEqual(LinkedList& list2);
+	bool isPalindrome();
 	~LinkedList();
 };
 

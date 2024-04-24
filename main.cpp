@@ -106,18 +106,28 @@ int main()
 	cout << endl;*/
 
 	// LINKED LIST
-	LinkedList list1, list2;
+	/*LinkedList list1, list2;
 	for (int i = 1; i < 10; i++) {
 		list1.push_back(i);
 		list2.push_back(i + 9);
-	}
+	}*/
 
-	LinkedList list3;
-	list3 = *list3.mergeList(list1, list2);
+	/*LinkedList list3;
+	list3.mergeList(list1, list2);
 	list3.display();
 
 	list3.removeTheNthNodeFromEnd(2);
-	list3.display();
+	list3.display();*/
+
+	LinkedList list4;
+	list4.push_back(1);
+	list4.push_back(2);
+	list4.push_back(3);
+	list4.push_back(1);
+
+	//cout << boolalpha << list4.isPalindrome() << endl;
+	list4.removeDuplicates();
+	list4.display();
 
 	/*list.display();
 	list.reverse();
