@@ -1,4 +1,21 @@
-Implement (I did with tail pointer & without):
+SOLVE IT:
+- detect a cycle in a linked list.
+	- Floyd's Tortoise & Hare algorithm (+)
+	- hash tables ( in the future )
+- find middle element of a linked list.
+	- basic middle element finder (+)
+	- Floyd's Tortoise & Hare algorithm (+) ( faster )
+- reverse a linked list. (+)
+- merge two linked lists. 
+- delete the nth node from the end of a linked list.
+- remove duplicates from a linked list.
+- check if a linked list is a palindrome.
+- implement a stack using a linked list.
+- implement a queue using a linked list.
+- implement a linked list.
+
+
+IMPLEMENT ( with and without tail ):
  size() - returns the number of data elements in the list
  empty() - bool returns true if empty
  value_at(index) - returns the value of the nth item (starting at 0 for first)
@@ -13,3 +30,7 @@ Implement (I did with tail pointer & without):
  value_n_from_end(n) - returns the value of the node at the nth position from the end of the list
  reverse() - reverses the list
  remove_value(value) - removes the first item in the list with this value
+
+
+ FLASHCARDS:
+ - what is the difference between while( current != nullptr and current->next != nullptr )

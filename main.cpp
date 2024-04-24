@@ -69,7 +69,32 @@ long long pushBTimeMeasureLinkedList(int value) {
 	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
 	return duration.count() / 1000000;
 }
-
+long long findMiddleTimeMeasureLinkedList(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		LinkedList list;
+		for (size_t j = 0; j < value; j++) {
+			list.push_back(j);
+		}
+		list.findMiddle();
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long findMiddleHareTimeMeasureLinkedList(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		LinkedList list;
+		for (size_t j = 0; j < value; j++) {
+			list.push_back(j);
+		}
+		list.findMiddleHare();
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
 int main()
 {
 	// ARRAY
@@ -81,18 +106,27 @@ int main()
 	cout << endl;*/
 
 	// LINKED LIST
-	/*LinkedList list;
-	for (int i = 0; i < 10; i++)
-		list.push_front(i);
-	list.display();
+	LinkedList list1, list2;
+	for (int i = 1; i < 10; i++) {
+		list1.push_back(i);
+		list2.push_back(i + 9);
+	}
 
-	cout << endl;
+	LinkedList* list = new LinkedList;
 
+	list->mergeList(list1, list2);
+	list->display();
+
+	/*list.display();
 	list.reverse();
 	list.display();*/
 
+	/*list.makeCycle();
+	cout << "CYCLE: " << boolalpha << list.isCycle() << endl;*/
+	//list.display();
+
 	// TESTING TIMES
-	int count = 0;
+	/*int count = 0;
 	int tries = 100;
 	int highestTime[4] = {};
 
@@ -131,7 +165,14 @@ int main()
 		else
 			cout << "Unknown: ";
 		cout << highestTime[i] << endl;
-	}
+	}*/
+	
+	// Testing middle find linked lists
+	/*long long findMiddle = findMiddleTimeMeasureLinkedList(100);
+	long long arrayTime = findMiddleHareTimeMeasureLinkedList(100);
+
+	cout << "Find Middle: " << findMiddle << endl;
+	cout << "Find Middle Hare: " << arrayTime << endl;*/
 
 	getchar();
 	return 0;

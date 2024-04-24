@@ -25,10 +25,19 @@ public:
 	int getBack();
 	void insert(int, int);
 	void erase(int);
-	int value_n_from_end(int);
-	void reverse();
 	void display();
 	void remove_value(int);
+
+	bool isCycle();
+	void makeCycle();
+
+	int findMiddle();
+	int findMiddleHare();
+
+	void reverse();
+
+	Node* returnHead();
+	LinkedList* mergeList(LinkedList &l1, LinkedList &l2);
 	~LinkedList();
 };
 

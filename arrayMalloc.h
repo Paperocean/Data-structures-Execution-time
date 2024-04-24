@@ -2,7 +2,6 @@
 #define ARRAY_MALLOC_H
 
 #include <iostream>
-#include <vector>
 using namespace std;
 
 class ArrayMalloc {

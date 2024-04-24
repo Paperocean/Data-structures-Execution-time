@@ -189,48 +189,13 @@ void LinkedList::erase(int index)
 	}
 }
 
-int LinkedList::value_n_from_end(int n)
-{
-	if (n >= size) {
-		cout << "Invalid index" << endl;
-		return -1;
-	}
-
-	Node* current = head;
-	for (int i = 0; i < size - n - 1; i++) {
-		current = current->next;
-	}
-	return current->data;
-}
-
-void LinkedList::reverse() {
-	if (head == nullptr || head->next == nullptr) {
-		return;
-	}
-
-	Node* current = head;
-	Node* prev = nullptr;
-	Node* next = nullptr;
-
-	while (current != nullptr) {
-		// Store next
-		next = current->next;
-		// Reverse current node's pointer
-		current->next = prev;
-		// Move pointers one position behind
-		prev = current;
-		current = next;
-	}
-	head = prev;
-}
-
-
 void LinkedList::display() {
 	Node* current = head;
 	while (current != nullptr) {
 		cout << current->data << " ";
 		current = current->next;
 	}
+	cout << endl;
 }
 
 void LinkedList::remove_value(int value)
@@ -259,6 +224,104 @@ void LinkedList::remove_value(int value)
 			}
 		}
 	}
+}
+
+bool LinkedList::isCycle() {
+	Node* tortoise = head;
+	Node* hare = head;
+
+	while (hare->next != nullptr && hare->next->next != nullptr) {
+		tortoise = tortoise->next;
+		hare = hare->next->next;
+		if (hare == tortoise) return true;
+	}
+	return false;
+}
+
+void LinkedList::makeCycle()
+{
+	Node* newNode = new Node;
+	newNode->data = 1;
+	newNode->next = nullptr;
+	head = newNode;
+
+	for (int i = 0; i < 9; i++) {
+		newNode = new Node;
+		newNode->data = i+1;
+		if (i != 8) {
+			newNode->next = nullptr;
+		}
+		else {
+			newNode->next = head;
+		}
+		Node* current = head;
+		while (current->next != nullptr) {
+			current = current->next;
+		}
+		current->next = newNode;
+	}
+}
+
+int LinkedList::findMiddle()
+{
+	Node* current = head;
+	int middle = size / 2 ;
+	for (int i = 0; i < middle; i++) {
+		current = current->next;
+	}
+	return current->data;
+}
+
+int LinkedList::findMiddleHare()
+{
+	Node* slow = head;
+	Node* fast = head;
+	while (fast != nullptr && fast->next != nullptr) {
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+	return slow->data;
+}
+
+void LinkedList::reverse()
+{
+	Node* current = head;
+	Node* next = nullptr;
+	Node* prev = nullptr;
+	while (current != nullptr) {
+		next = current->next;
+		current->next = prev;
+		prev = current;
+
+		current = next;
+	}
+	head = prev;
+}
+
+Node* LinkedList::returnHead()
+{
+	if(head != nullptr) return head;
+	return nullptr;
+}
+
+LinkedList* LinkedList::mergeList(LinkedList &l1, LinkedList &l2)
+{
+	LinkedList* list = new LinkedList;
+	Node* head1 = l1.returnHead();
+	Node* head2 = l2.returnHead();
+
+	Node* current = nullptr;
+	current = head1;
+	while (current != nullptr) {
+		list->push_back(current->data);
+		current = current->next;
+	}
+	current = head2;
+	while (current != nullptr) {
+		list->push_back(current->data);
+		current = current->next;
+	}
+	return list;
 }
 
 LinkedList::~LinkedList() {
