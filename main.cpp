@@ -112,10 +112,12 @@ int main()
 		list2.push_back(i + 9);
 	}
 
-	LinkedList* list = new LinkedList;
+	LinkedList list3;
+	list3 = *list3.mergeList(list1, list2);
+	list3.display();
 
-	list->mergeList(list1, list2);
-	list->display();
+	list3.removeTheNthNodeFromEnd(2);
+	list3.display();
 
 	/*list.display();
 	list.reverse();

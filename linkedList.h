@@ -27,17 +27,15 @@ public:
 	void erase(int);
 	void display();
 	void remove_value(int);
-
 	bool isCycle();
 	void makeCycle();
-
 	int findMiddle();
 	int findMiddleHare();
-
 	void reverse();
-
 	Node* returnHead();
 	LinkedList* mergeList(LinkedList &l1, LinkedList &l2);
+	void removeTheNthNodeFromEnd(int n);
+	void removeDuplicates();
 	~LinkedList();
 };
 

@@ -6,8 +6,9 @@ SOLVE IT:
 	- basic middle element finder (+)
 	- Floyd's Tortoise & Hare algorithm (+) ( faster )
 - reverse a linked list. (+)
-- merge two linked lists. 
-- delete the nth node from the end of a linked list.
+- merge two linked lists. (+)
+- delete the nth node from the end of a linked list. (+)
+- sort linked list
 - remove duplicates from a linked list.
 - check if a linked list is a palindrome.
 - implement a stack using a linked list.

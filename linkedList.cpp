@@ -306,7 +306,8 @@ Node* LinkedList::returnHead()
 
 LinkedList* LinkedList::mergeList(LinkedList &l1, LinkedList &l2)
 {
-	LinkedList* list = new LinkedList;
+	size_t size = l1.getSize() + l2.getSize();
+	LinkedList* list = new LinkedList();
 	Node* head1 = l1.returnHead();
 	Node* head2 = l2.returnHead();
 
@@ -322,6 +323,36 @@ LinkedList* LinkedList::mergeList(LinkedList &l1, LinkedList &l2)
 		current = current->next;
 	}
 	return list;
+}
+
+void LinkedList::removeTheNthNodeFromEnd(int n)
+{
+	if (head == nullptr || n <= 0 || n >= size) {
+		return;
+	}
+
+	Node* current = head;
+	Node* prev = nullptr;
+	for (int i = 0; i < size - n; ++i) {
+		prev = current;
+		current = current->next;
+	}
+	if (prev != nullptr)
+		prev->next = current->next;
+	else head = head->next;
+
+	if(current != nullptr)
+		delete current;
+
+	size--;
+	return;
+}
+
+void LinkedList::removeDuplicates()
+{
+	Node* current = head;
+
+	while(current =)
 }
 
 LinkedList::~LinkedList() {
