@@ -132,13 +132,19 @@
     <ClCompile Include="arrayMalloc.cpp" />
     <ClCompile Include="linkedList.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="stackLinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />
     <ClInclude Include="arrayMalloc.h" />
     <ClInclude Include="LinkedList - instructions.txt" />
     <ClInclude Include="linkedList.h" />
+<<<<<<< HEAD
     <ClInclude Include="mergeSort.h" />
+=======
+    <ClInclude Include="queue.h" />
+    <ClInclude Include="stackLinkedList.h" />
+>>>>>>> dd2649de36d586b2d0bf7339871ecf786c223443
   </ItemGroup>
   <ItemGroup>
     <Text Include="Array - instructions.txt" />
