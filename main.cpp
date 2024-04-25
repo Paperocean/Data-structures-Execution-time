@@ -4,6 +4,7 @@
 #include "array.h"
 #include "arrayMalloc.h"
 #include "linkedList.h"
+#include "linkedListMalloc.h"
 using namespace std;
 
 // ARRAY
@@ -95,6 +96,19 @@ long long findMiddleHareTimeMeasureLinkedList(int value) {
 	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
 	return duration.count() / 1000000;
 }
+//long long pushTimeMeasureMallocLinkedList(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		LinkedListMalloc list;
+//		for (size_t j = 0; j < value; j++) {
+//			list.push_front(j);
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+
 int main()
 {
 	// ARRAY
@@ -119,15 +133,15 @@ int main()
 	list3.removeTheNthNodeFromEnd(2);
 	list3.display();*/
 
-	LinkedList list4;
-	list4.push_back(1);
-	list4.push_back(2);
-	list4.push_back(3);
-	list4.push_back(1);
-	
+	//LinkedList list4;
+	//list4.push_back(1);
+	//list4.push_back(2);
+	//list4.push_back(3);
+	//list4.push_back(1);
+	//
 	//cout << boolalpha << list4.isPalindrome() << endl;
-	list4.removeDuplicates();
-	list4.display();
+	//list4.removeDuplicates();
+	//list4.display();
 
 	/*list.display();
 	list.reverse();
@@ -185,6 +199,15 @@ int main()
 
 	cout << "Find Middle: " << findMiddle << endl;
 	cout << "Find Middle Hare: " << arrayTime << endl;*/
+
+	// we want to check which is faster: linked list or linked list with malloc
+	/*for (int i = 0; i < 100; i++) {
+		long long linkedListTime = pushFTimeMeasureLinkedList(i);
+		long long linkedListMallocTime = pushTimeMeasureMallocLinkedList(i);
+
+		cout << "LinkedList: " << linkedListTime << endl;
+		cout << "LinkedListMalloc: " << linkedListMallocTime << endl;
+	}*/
 
 	getchar();
 	return 0;
