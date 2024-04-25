@@ -139,12 +139,9 @@
     <ClInclude Include="arrayMalloc.h" />
     <ClInclude Include="LinkedList - instructions.txt" />
     <ClInclude Include="linkedList.h" />
-<<<<<<< HEAD
-    <ClInclude Include="mergeSort.h" />
-=======
     <ClInclude Include="queue.h" />
     <ClInclude Include="stackLinkedList.h" />
->>>>>>> dd2649de36d586b2d0bf7339871ecf786c223443
+    <ClInclude Include="mergeSort.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Array - instructions.txt" />
