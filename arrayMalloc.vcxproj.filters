@@ -25,6 +25,12 @@
     <Filter Include="Pliki źródłowe\LinkedList">
       <UniqueIdentifier>{d7262e1e-2f69-4051-b3d5-3701d260a81d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Sorting Algorithms">
+      <UniqueIdentifier>{7bc6662f-1360-40b3-8a29-b4fff59683a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Search Algorithms">
+      <UniqueIdentifier>{2bee73bb-5c6f-4c65-bdd9-66e7f77d883c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -52,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="LinkedList - instructions.txt">
       <Filter>Pliki nagłówkowe\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="mergeSort.h">
+      <Filter>Pliki nagłówkowe\Sorting Algorithms</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

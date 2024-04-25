@@ -124,7 +124,7 @@ int main()
 	list4.push_back(2);
 	list4.push_back(3);
 	list4.push_back(1);
-
+	
 	//cout << boolalpha << list4.isPalindrome() << endl;
 	list4.removeDuplicates();
 	list4.display();

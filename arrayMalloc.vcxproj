@@ -138,6 +138,7 @@
     <ClInclude Include="arrayMalloc.h" />
     <ClInclude Include="LinkedList - instructions.txt" />
     <ClInclude Include="linkedList.h" />
+    <ClInclude Include="mergeSort.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Array - instructions.txt" />
