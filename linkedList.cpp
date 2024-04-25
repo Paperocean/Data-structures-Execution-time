@@ -385,7 +385,7 @@ bool LinkedList::isPalindrome()
 		ls.push_back(current->data);
 		current = current->next;
 	}
-	reverse();
+	ls.reverse();
 	if (isEqual(ls))
 		return true;
 	return false;
