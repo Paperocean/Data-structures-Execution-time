@@ -34,6 +34,12 @@
     <Filter Include="Pliki źródłowe\Stack">
       <UniqueIdentifier>{d1fe3f15-6fe9-4816-b164-0f480a9c20d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Sorting Algorithms">
+      <UniqueIdentifier>{7bc6662f-1360-40b3-8a29-b4fff59683a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Search Algorithms">
+      <UniqueIdentifier>{2bee73bb-5c6f-4c65-bdd9-66e7f77d883c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -64,12 +70,6 @@
     </ClInclude>
     <ClInclude Include="LinkedList - instructions.txt">
       <Filter>Pliki nagłówkowe\LinkedList</Filter>
-    </ClInclude>
-    <ClInclude Include="stackLinkedList.h">
-      <Filter>Pliki nagłówkowe\Stack</Filter>
-    </ClInclude>
-    <ClInclude Include="queue.h">
-      <Filter>Pliki nagłówkowe\Queue</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

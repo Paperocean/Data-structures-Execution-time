@@ -1,4 +1,5 @@
 #include "linkedList.h"
+#include "array.h"
 using namespace std;
 
 LinkedList::LinkedList()
@@ -345,18 +346,39 @@ void LinkedList::removeTheNthNodeFromEnd(int n)
 	return;
 }
 
+int LinkedList::getMaxNum() {
+	int max = 0;
+	if (size == 0) {
+		return INT_MAX;
+	}
+
+	Node* current = head;
+	max = current->data;
+	while (current != nullptr) {
+		if (current->data > max)
+			max = current->data;
+		current = current->next;
+	}
+	return max;
+}
+
 void LinkedList::removeDuplicates()
 {
 	Node* current = head;
-	int arr[100] = {};
-	int i = 0;
+	Node* prev = nullptr;
+	int arrSize = this->getMaxNum();
+	int* arr = new int[arrSize + 1]();
 	while(current != nullptr) {
-		if (arr[current->data] >= 1) {
-			erase(i-1); /// why i -1 
-		}
 		arr[current->data]++;
-		current = current->next;
-		i++;
+		if (arr[current->data] == 2) {
+			prev->next = current->next;
+			delete current;
+			current = prev->next;
+		}
+		else {
+			prev = current;
+			current = current->next;
+		}
 	}
 }
 

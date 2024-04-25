@@ -39,6 +39,7 @@ public:
 	void removeDuplicates();
 	bool isEqual(LinkedList& list2);
 	bool isPalindrome();
+	int getMaxNum();
 	~LinkedList();
 };
 
