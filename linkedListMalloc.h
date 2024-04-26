@@ -1,8 +1,9 @@
-#ifndef LINKED_LIST_MALLOC_H
-#define LINKED_LIST_MALLOC_H
+#ifndef LINKEDLISTMALLOC_H
+#define LINKEDLISTMALLOC_H
 
 #include <iostream>
 #include <vector>
+using namespace std;
 
 struct Node {
 	Node* next;
@@ -22,4 +23,4 @@ public:
 };
 
 
-#endif // LINKED_LIST_MALLOC_H
+#endif // LINKEDLISTMALLOC_H

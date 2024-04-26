@@ -1,10 +1,12 @@
 ﻿#include <iostream>
 #include <chrono>
 #include <vector>
+
 #include "array.h"
 #include "arrayMalloc.h"
 #include "linkedList.h"
 #include "linkedListMalloc.h"
+
 using namespace std;
 
 // ARRAY
