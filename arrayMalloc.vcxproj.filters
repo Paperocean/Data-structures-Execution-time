@@ -57,6 +57,15 @@
     <ClCompile Include="stackLinkedList.cpp">
       <Filter>Pliki źródłowe\Stack</Filter>
     </ClCompile>
+    <ClCompile Include="stackArray.h">
+      <Filter>Pliki nagłówkowe\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="stackArray.cpp">
+      <Filter>Pliki źródłowe\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="stackLinkedL.h">
+      <Filter>Pliki nagłówkowe\Stack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayMalloc.h">
@@ -70,6 +79,12 @@
     </ClInclude>
     <ClInclude Include="LinkedList - instructions.txt">
       <Filter>Pliki nagłówkowe\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="mergeSort.h">
+      <Filter>Pliki nagłówkowe\Sorting Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="queue.h">
+      <Filter>Pliki nagłówkowe\Queue</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

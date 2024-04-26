@@ -5,7 +5,8 @@
 #include "array.h"
 #include "arrayMalloc.h"
 #include "linkedList.h"
-#include "linkedListMalloc.h"
+#include "stackArray.h"
+#include "stackLinkedL.h"
 
 using namespace std;
 
@@ -98,18 +99,59 @@ long long findMiddleHareTimeMeasureLinkedList(int value) {
 	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
 	return duration.count() / 1000000;
 }
-//long long pushTimeMeasureMallocLinkedList(int value) {
-//	auto start = chrono::high_resolution_clock::now();
-//	for (size_t i = 0; i < 1000000; i++) {
-//		LinkedListMalloc list;
-//		for (size_t j = 0; j < value; j++) {
-//			list.push_front(j);
-//		}
-//	}
-//	auto end = chrono::high_resolution_clock::now();
-//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-//	return duration.count() / 1000000;
-//}
+
+// STACK
+long long pushStackArray(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		StackArray arr;
+		for (size_t j = 0; j < value; j++) {
+			arr.push(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long pushStackLinkedList(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		StackLinkedList list;
+		for (size_t j = 0; j < value; j++) {
+			list.push(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long popStackArray(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		StackArray arr;
+		for (size_t j = 0; j < value; j++) {
+			arr.push(j);
+		}
+		arr.pop();
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long popStackLinkedList(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		StackLinkedList list;
+		for (size_t j = 0; j < value; j++) {
+			list.push(j);
+		}
+		list.pop();
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+
 
 int main()
 {
@@ -210,6 +252,19 @@ int main()
 		cout << "LinkedList: " << linkedListTime << endl;
 		cout << "LinkedListMalloc: " << linkedListMallocTime << endl;
 	}*/
+
+	// Testing stack
+	for (int i = 0; i < 100; i++) {
+		long long stackArrayTime = pushStackArray(i);
+		long long stackLinkedListTime = pushStackLinkedList(i);
+		long long popStackArrayTime = popStackArray(i);
+		long long popStackLinkedListTime = popStackLinkedList(i);
+
+		cout << "StackArray: " << stackArrayTime << endl;
+		cout << "StackLinkedList: " << stackLinkedListTime << endl;
+		cout << "PopStackArray: " << popStackArrayTime << endl;
+		cout << "PopStackLinkedList: " << popStackLinkedListTime << endl;
+	}
 
 	getchar();
 	return 0;
