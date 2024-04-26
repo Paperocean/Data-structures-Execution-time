@@ -4,8 +4,8 @@
 
 #include "array.h"
 #include "arrayMalloc.h"
-#include "linkedList.h"
-#include "stackArray.h"
+//#include "linkedList.h"
+#include "stackA.h"
 #include "stackLinkedL.h"
 
 using namespace std;
@@ -49,56 +49,56 @@ long long pushTimeMeasureVector(int value) {
 }
 
 // LINKED LIST
-long long pushFTimeMeasureLinkedList(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		LinkedList list;
-		for (size_t j = 0; j < value; j++) {
-			list.push_front(j);
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long pushBTimeMeasureLinkedList(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		LinkedList list;
-		for (size_t j = 0; j < value; j++) {
-			list.push_back(j);
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long findMiddleTimeMeasureLinkedList(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		LinkedList list;
-		for (size_t j = 0; j < value; j++) {
-			list.push_back(j);
-		}
-		list.findMiddle();
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long findMiddleHareTimeMeasureLinkedList(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		LinkedList list;
-		for (size_t j = 0; j < value; j++) {
-			list.push_back(j);
-		}
-		list.findMiddleHare();
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
+//long long pushFTimeMeasureLinkedList(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		LinkedList list;
+//		for (size_t j = 0; j < value; j++) {
+//			list.push_front(j);
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long pushBTimeMeasureLinkedList(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		LinkedList list;
+//		for (size_t j = 0; j < value; j++) {
+//			list.push_back(j);
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long findMiddleTimeMeasureLinkedList(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		LinkedList list;
+//		for (size_t j = 0; j < value; j++) {
+//			list.push_back(j);
+//		}
+//		list.findMiddle();
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long findMiddleHareTimeMeasureLinkedList(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		LinkedList list;
+//		for (size_t j = 0; j < value; j++) {
+//			list.push_back(j);
+//		}
+//		list.findMiddleHare();
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
 
 // STACK
 long long pushStackArray(int value) {
@@ -129,10 +129,13 @@ long long popStackArray(int value) {
 	auto start = chrono::high_resolution_clock::now();
 	for (size_t i = 0; i < 1000000; i++) {
 		StackArray arr;
+
 		for (size_t j = 0; j < value; j++) {
 			arr.push(j);
 		}
-		arr.pop();
+		for (size_t j = 0; j < value; j++) {
+			arr.pop();
+		}
 	}
 	auto end = chrono::high_resolution_clock::now();
 	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
@@ -145,7 +148,9 @@ long long popStackLinkedList(int value) {
 		for (size_t j = 0; j < value; j++) {
 			list.push(j);
 		}
-		list.pop();
+		for (size_t j = 0; j < value; j++) {
+			list.pop();
+		}
 	}
 	auto end = chrono::high_resolution_clock::now();
 	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
@@ -254,17 +259,38 @@ int main()
 	}*/
 
 	// Testing stack
-	for (int i = 0; i < 100; i++) {
-		long long stackArrayTime = pushStackArray(i);
-		long long stackLinkedListTime = pushStackLinkedList(i);
-		long long popStackArrayTime = popStackArray(i);
-		long long popStackLinkedListTime = popStackLinkedList(i);
+	long long stackArrayTime = 0;
+	long long stackLinkedListTime = 0;
+	long long popStackArrayTime = 0;
+	long long popStackLinkedListTime = 0;
 
-		cout << "StackArray: " << stackArrayTime << endl;
-		cout << "StackLinkedList: " << stackLinkedListTime << endl;
-		cout << "PopStackArray: " << popStackArrayTime << endl;
-		cout << "PopStackLinkedList: " << popStackLinkedListTime << endl;
+	for (int i = 0; i < 50; i++) {
+		stackArrayTime += pushStackArray(i);
+		stackLinkedListTime += pushStackLinkedList(i);
+		popStackArrayTime += popStackArray(i);
+		popStackLinkedListTime += popStackLinkedList(i);
+		
+		if (i == 49) {
+			cout << "-----------------------------------" << endl;
+			cout << "StackArray: " << stackArrayTime / 50 << endl;
+			cout << "StackLinkedList: " << stackLinkedListTime / 50 << endl;
+			cout << "PopStackArray: " << popStackArrayTime / 50 << endl;
+			cout << "PopStackLinkedList: " << popStackLinkedListTime / 50 << endl;
+			cout << "-----------------------------------" << endl;
+		}
 	}
+
+	/*StackLinkedList list;
+	list.push(1);
+	list.push(2);
+	list.push(3);
+	list.display();
+
+	list.pop();
+	list.pop();
+	list.pop();
+	list.pop();
+	list.display();*/
 
 	getchar();
 	return 0;

@@ -34,6 +34,28 @@ void StackLinkedList::push(int value)
 	size++;
 }
 
+//int StackLinkedList::pop()
+//{
+//	if (size == 0) {
+//		cout << "Stack is empty" << endl;
+//		return -1;
+//	}
+//	else if (size == 1) {
+//		int value = head->data;
+//		head = nullptr;
+//		size--;
+//		return value;
+//	}
+//	else {
+//		Node* temp = head;
+//		int value = temp->data;
+//		head = temp->next;
+//		delete temp;
+//		size--;
+//		return value;
+//	}
+//}
+
 int StackLinkedList::pop()
 {
 	if (size == 0) {
@@ -43,15 +65,27 @@ int StackLinkedList::pop()
 	else if (size == 1) {
 		int value = head->data;
 		head = nullptr;
+		size--;
 		return value;
 	}
+	else {
+		Node* temp = head;
+		int value = temp->data;
+		head = temp->next;
+		delete temp;
+		size--;
+		return value;
+	}
+}
 
-	Node* temp = head;
-	int value = temp->data;
-	delete head;
-	head = temp->next;
-	size--;
-	return value;
+void StackLinkedList::display()
+{
+	Node* current = head;
+	while (current != nullptr) {
+		cout << current->data << " ";
+		current = current->next;
+	}
+	cout << endl;
 }
 
 

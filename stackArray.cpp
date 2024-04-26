@@ -1,4 +1,4 @@
-#include "stackArray.h"
+#include "stackA.h"
 
 void StackArray::resize(int new_capacity)
 {

@@ -133,7 +133,6 @@
     <ClCompile Include="linkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stackArray.cpp" />
-    <ClCompile Include="stackArray.h" />
     <ClCompile Include="stackLinkedL.h" />
     <ClCompile Include="stackLinkedList.cpp" />
   </ItemGroup>
@@ -142,8 +141,7 @@
     <ClInclude Include="arrayMalloc.h" />
     <ClInclude Include="LinkedList - instructions.txt" />
     <ClInclude Include="linkedList.h" />
-    <ClInclude Include="queue.h" />
-    <ClInclude Include="mergeSort.h" />
+    <ClInclude Include="stackA.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Array - instructions.txt" />

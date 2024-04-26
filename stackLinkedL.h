@@ -19,6 +19,8 @@ public:
 
 	void push(int values);
 	int pop();
+
+	void display();
 };
 
 
