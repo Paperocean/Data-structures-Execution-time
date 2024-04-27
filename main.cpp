@@ -7,6 +7,8 @@
 //#include "linkedList.h"
 #include "stackA.h"
 #include "stackLinkedL.h"
+#include "queueArray.h"
+#include "queueLL.h"
 
 using namespace std;
 
@@ -157,6 +159,117 @@ long long popStackLinkedList(int value) {
 	return duration.count() / 1000000;
 }
 
+// QUEUE
+long long pushQueueArrayEnd(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		QueueArray arr;
+		for (size_t j = 0; j < value; j++) {
+			arr.enqueueEnd(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long pushQueueArrayBeg(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		QueueArray arr;
+		for (size_t j = 0; j < value; j++) {
+			arr.enqueueBeg(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long popQueueArrayBeg(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		QueueArray arr;
+		for (size_t j = 0; j < value; j++) {
+			arr.enqueueEnd(j);
+		}
+		for (size_t j = 0; j < value; j++) {
+			arr.dequeueBeg();
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long popQueueArrayEnd(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		QueueArray arr;
+		for (size_t j = 0; j < value; j++) {
+			arr.enqueueBeg(j);
+		}
+		for (size_t j = 0; j < value; j++) {
+			arr.dequeueEnd();
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+
+long long enqueueBegTimeMeasureLinkedList(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		QueueLinkedList list;
+		for (size_t j = 0; j < value; j++) {
+			list.enqueueBeg(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long enqueueEndTimeMeasureLinkedList(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		QueueLinkedList list;
+		for (size_t j = 0; j < value; j++) {
+			list.enqueueEnd(j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long dequeueBegTimeMeasureLinkedList(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		QueueLinkedList list;
+		for (size_t j = 0; j < value; j++) {
+			list.enqueueEnd(j);
+		}
+		for (size_t j = 0; j < value; j++) {
+			list.dequeueBeg();
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+long long dequeueEndTimeMeasureLinkedList(int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000000; i++) {
+		QueueLinkedList list;
+		for (size_t j = 0; j < value; j++) {
+			list.enqueueBeg(j);
+		}
+		for (size_t j = 0; j < value; j++) {
+			list.dequeueEnd();
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000000;
+}
+
 
 int main()
 {
@@ -259,7 +372,7 @@ int main()
 	}*/
 
 	// Testing stack
-	long long stackArrayTime = 0;
+	/*long long stackArrayTime = 0;
 	long long stackLinkedListTime = 0;
 	long long popStackArrayTime = 0;
 	long long popStackLinkedListTime = 0;
@@ -278,7 +391,7 @@ int main()
 			cout << "PopStackLinkedList: " << popStackLinkedListTime / 50 << endl;
 			cout << "-----------------------------------" << endl;
 		}
-	}
+	}*/
 
 	/*StackLinkedList list;
 	list.push(1);
@@ -291,6 +404,50 @@ int main()
 	list.pop();
 	list.pop();
 	list.display();*/
+
+	// TESTING QUEUE
+//	long long queueArrayEndTime = 0;
+//	long long queueArrayBegTime = 0;
+//	long long popQueueArrayBegTime = 0;
+//	long long popQueueArrayEndTime = 0;
+//
+//for (int i = 0; i < 50; i++) {
+//	queueArrayEndTime += pushQueueArrayEnd(i);
+//	queueArrayBegTime += pushQueueArrayBeg(i);
+//	popQueueArrayBegTime += popQueueArrayBeg(i);
+//	popQueueArrayEndTime += popQueueArrayEnd(i);
+//
+//	if (i == 49) {
+//		cout << "-----------------------------------" << endl;
+//		cout << "QueueArrayEnd: " << queueArrayEndTime / 50 << endl;
+//		cout << "QueueArrayBeg: " << queueArrayBegTime / 50 << endl;
+//		cout << "PopQueueArrayBeg: " << popQueueArrayBegTime / 50 << endl;
+//		cout << "PopQueueArrayEnd: " << popQueueArrayEndTime / 50 << endl;
+//		cout << "-----------------------------------" << endl;
+//	}
+//}
+
+	// TESTING QUEUE LINKED LIST
+long long enqueueBegTime = 0;
+long long enqueueEndTime = 0;
+long long dequeueBegTime = 0;
+long long dequeueEndTime = 0;
+
+for (int i = 0; i < 50; i++) {
+	enqueueEndTime += enqueueEndTimeMeasureLinkedList(i);
+	enqueueBegTime += enqueueBegTimeMeasureLinkedList(i);
+	dequeueBegTime += dequeueBegTimeMeasureLinkedList(i);
+	dequeueEndTime += dequeueEndTimeMeasureLinkedList(i);
+
+	if (i == 49) {
+		cout << "-----------------------------------" << endl;
+		cout << "QueueArrayEnd: " << enqueueEndTime / 50 << endl;
+		cout << "QueueArrayBeg: " << enqueueBegTime / 50 << endl;
+		cout << "PopQueueArrayBeg: " << dequeueBegTime / 50 << endl;
+		cout << "PopQueueArrayEnd: " << dequeueEndTime / 50 << endl;
+		cout << "-----------------------------------" << endl;
+	}
+}
 
 	getchar();
 	return 0;

@@ -2,12 +2,8 @@
 #define STACK_LINKED_LIST_H
 
 #include <iostream>
+#include "Node.h"
 using namespace std;
-
-struct Node {
-	Node* next;
-	int data;
-};
 
 class StackLinkedList {
 private:

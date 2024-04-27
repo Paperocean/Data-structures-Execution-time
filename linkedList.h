@@ -3,11 +3,7 @@
 
 #include <iostream>
 #include <vector>
-
-struct Node {
-	Node* next;
-	int data;
-};
+#include "Node.h"
 
 class LinkedList {
 private:

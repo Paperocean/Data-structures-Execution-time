@@ -40,6 +40,9 @@
     <Filter Include="Pliki nagłówkowe\Search Algorithms">
       <UniqueIdentifier>{2bee73bb-5c6f-4c65-bdd9-66e7f77d883c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\Queue">
+      <UniqueIdentifier>{55ceac64-c945-4296-b087-7bb202b4d41a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,6 +66,12 @@
     <ClCompile Include="stackLinkedL.h">
       <Filter>Pliki nagłówkowe\Stack</Filter>
     </ClCompile>
+    <ClCompile Include="queueArray.cpp">
+      <Filter>Pliki źródłowe\Queue</Filter>
+    </ClCompile>
+    <ClCompile Include="queueLL.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayMalloc.h">
@@ -79,6 +88,15 @@
     </ClInclude>
     <ClInclude Include="stackA.h">
       <Filter>Pliki nagłówkowe\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="queueArray.h">
+      <Filter>Pliki nagłówkowe\Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="queueLL.h">
+      <Filter>Pliki nagłówkowe\Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
