@@ -2,53 +2,53 @@
 #include <chrono>
 #include <vector>
 
-#include "array.h"
-#include "arrayMalloc.h"
+//#include "array.h"
+//#include "arrayMalloc.h"
 //#include "linkedList.h"
-#include "stackA.h"
-#include "stackLinkedL.h"
-#include "queueArray.h"
+//#include "stackA.h"
+//#include "stackLinkedL.h"
+//#include "queueArray.h"
 #include "queueLL.h"
 
 using namespace std;
 
 // ARRAY
-long long pushTimeMeasureMallocArray(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		ArrayMalloc arr;
-		for (size_t j = 0; j < value; j++) {
-			arr.push(j);
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long pushTimeMeasureArray(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		Array arr;
-		for (size_t j = 0; j < value; j++) {
-			arr.push(j);
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long pushTimeMeasureVector(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		vector<int> arr;
-		for (size_t j = 0; j < value; j++) {
-			arr.push_back(j);
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
+//long long pushTimeMeasureMallocArray(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		ArrayMalloc arr;
+//		for (size_t j = 0; j < value; j++) {
+//			arr.push(j);
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long pushTimeMeasureArray(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		Array arr;
+//		for (size_t j = 0; j < value; j++) {
+//			arr.push(j);
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long pushTimeMeasureVector(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		vector<int> arr;
+//		for (size_t j = 0; j < value; j++) {
+//			arr.push_back(j);
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
 
 // LINKED LIST
 //long long pushFTimeMeasureLinkedList(int value) {
@@ -103,117 +103,117 @@ long long pushTimeMeasureVector(int value) {
 //}
 
 // STACK
-long long pushStackArray(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		StackArray arr;
-		for (size_t j = 0; j < value; j++) {
-			arr.push(j);
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long pushStackLinkedList(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		StackLinkedList list;
-		for (size_t j = 0; j < value; j++) {
-			list.push(j);
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long popStackArray(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		StackArray arr;
-
-		for (size_t j = 0; j < value; j++) {
-			arr.push(j);
-		}
-		for (size_t j = 0; j < value; j++) {
-			arr.pop();
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long popStackLinkedList(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		StackLinkedList list;
-		for (size_t j = 0; j < value; j++) {
-			list.push(j);
-		}
-		for (size_t j = 0; j < value; j++) {
-			list.pop();
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
+//long long pushStackArray(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		StackArray arr;
+//		for (size_t j = 0; j < value; j++) {
+//			arr.push(j);
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long pushStackLinkedList(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		StackLinkedList list;
+//		for (size_t j = 0; j < value; j++) {
+//			list.push(j);
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long popStackArray(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		StackArray arr;
+//
+//		for (size_t j = 0; j < value; j++) {
+//			arr.push(j);
+//		}
+//		for (size_t j = 0; j < value; j++) {
+//			arr.pop();
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long popStackLinkedList(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		StackLinkedList list;
+//		for (size_t j = 0; j < value; j++) {
+//			list.push(j);
+//		}
+//		for (size_t j = 0; j < value; j++) {
+//			list.pop();
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
 
 // QUEUE
-long long pushQueueArrayEnd(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		QueueArray arr;
-		for (size_t j = 0; j < value; j++) {
-			arr.enqueueEnd(j);
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long pushQueueArrayBeg(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		QueueArray arr;
-		for (size_t j = 0; j < value; j++) {
-			arr.enqueueBeg(j);
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long popQueueArrayBeg(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		QueueArray arr;
-		for (size_t j = 0; j < value; j++) {
-			arr.enqueueEnd(j);
-		}
-		for (size_t j = 0; j < value; j++) {
-			arr.dequeueBeg();
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
-long long popQueueArrayEnd(int value) {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < 1000000; i++) {
-		QueueArray arr;
-		for (size_t j = 0; j < value; j++) {
-			arr.enqueueBeg(j);
-		}
-		for (size_t j = 0; j < value; j++) {
-			arr.dequeueEnd();
-		}
-	}
-	auto end = chrono::high_resolution_clock::now();
-	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
-	return duration.count() / 1000000;
-}
+//long long pushQueueArrayEnd(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		QueueArray arr;
+//		for (size_t j = 0; j < value; j++) {
+//			arr.enqueueEnd(j);
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long pushQueueArrayBeg(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		QueueArray arr;
+//		for (size_t j = 0; j < value; j++) {
+//			arr.enqueueBeg(j);
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long popQueueArrayBeg(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		QueueArray arr;
+//		for (size_t j = 0; j < value; j++) {
+//			arr.enqueueEnd(j);
+//		}
+//		for (size_t j = 0; j < value; j++) {
+//			arr.dequeueBeg();
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
+//long long popQueueArrayEnd(int value) {
+//	auto start = chrono::high_resolution_clock::now();
+//	for (size_t i = 0; i < 1000000; i++) {
+//		QueueArray arr;
+//		for (size_t j = 0; j < value; j++) {
+//			arr.enqueueBeg(j);
+//		}
+//		for (size_t j = 0; j < value; j++) {
+//			arr.dequeueEnd();
+//		}
+//	}
+//	auto end = chrono::high_resolution_clock::now();
+//	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+//	return duration.count() / 1000000;
+//}
 
 long long enqueueBegTimeMeasureLinkedList(int value) {
 	auto start = chrono::high_resolution_clock::now();

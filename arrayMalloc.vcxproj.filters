@@ -70,7 +70,7 @@
       <Filter>Pliki źródłowe\Queue</Filter>
     </ClCompile>
     <ClCompile Include="queueLL.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\LinkedList</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
