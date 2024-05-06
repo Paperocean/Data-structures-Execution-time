@@ -12,6 +12,7 @@
 #include "queueArray.h"
 #include "queueLL.h"
 #include "hashTableChaining.h"
+#include "hashTableLinear.h"
 
 using namespace std;
 

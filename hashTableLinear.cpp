@@ -69,6 +69,17 @@ int HashTableLinear::remove(int key) {
 		resize(capacity / 2);
 }
 
+void HashTableLinear::display()
+{
+	for (size_t i = 0; i < capacity; i++) {
+		cout << i << ": ";
+		if (table[i] != -1)
+			cout << table[i];
+		cout << endl;
+	}
+	cout << endl;
+}
+
 int HashTableLinear::search(int key) {
 	int index = hash(key);
 	int startIndex = index;

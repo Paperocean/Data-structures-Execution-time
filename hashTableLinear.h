@@ -4,12 +4,13 @@
 #include <iostream>
 using namespace std;
 
-class HashTableLinear {
+class HashTableLinear{
 private:
 	int* table;
 	size_t size;
 	size_t capacity;
 	void resize(size_t newCapacity);
+
 public:
 	HashTableLinear(size_t capacity);
 	~HashTableLinear();

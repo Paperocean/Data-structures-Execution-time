@@ -82,7 +82,7 @@
       <Filter>Pliki źródłowe\Hash Table</Filter>
     </ClCompile>
     <ClCompile Include="hashTableLinear.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\Hash Table</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +114,9 @@
       <Filter>Pliki nagłówkowe\Hash Table</Filter>
     </ClInclude>
     <ClInclude Include="hashTableLinear.h">
+      <Filter>Pliki nagłówkowe\Hash Table</Filter>
+    </ClInclude>
+    <ClInclude Include="hashTableQuadric.h">
       <Filter>Pliki nagłówkowe\Hash Table</Filter>
     </ClInclude>
   </ItemGroup>

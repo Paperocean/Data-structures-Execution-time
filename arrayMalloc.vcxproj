@@ -145,6 +145,7 @@
     <ClInclude Include="arrayMalloc.h" />
     <ClInclude Include="hashTableChaining.h" />
     <ClInclude Include="hashTableLinear.h" />
+    <ClInclude Include="hashTableQuadric.h" />
     <ClInclude Include="LinkedList - instructions.txt" />
     <ClInclude Include="linkedList.h" />
     <ClInclude Include="Node.h" />
