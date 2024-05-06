@@ -84,6 +84,9 @@
     <ClCompile Include="hashTableLinear.cpp">
       <Filter>Pliki źródłowe\Hash Table</Filter>
     </ClCompile>
+    <ClCompile Include="hashTableQuadric.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayMalloc.h">

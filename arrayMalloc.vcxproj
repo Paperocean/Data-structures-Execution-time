@@ -132,6 +132,7 @@
     <ClCompile Include="arrayMalloc.cpp" />
     <ClCompile Include="hashTableChaining.cpp" />
     <ClCompile Include="hashTableLinear.cpp" />
+    <ClCompile Include="hashTableQuadric.cpp" />
     <ClCompile Include="linkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="queueArray.cpp" />
