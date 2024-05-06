@@ -1,24 +1,18 @@
-#ifndef HASHTABLE_CHAINING_H
-#define HASHTABLE_CHAINING_H
+#ifndef HASHTABLE_LINEAR_H
+#define HASHTABLE_LINEAR_H
 
 #include <iostream>
 using namespace std;
 
-struct Node {
-	int key;
-	int value;
-	Node* next;
-};
-
-class HashTableChaining {
+class HashTableLinear {
 private:
-	Node** table;
+	int* table;
 	size_t size;
 	size_t capacity;
 	void resize(size_t newCapacity);
 public:
-	HashTableChaining(int capacity);
-	~HashTableChaining();
+	HashTableLinear(size_t capacity);
+	~HashTableLinear();
 	int hash(int key);
 	void insert(int key, int value);
 	int search(int key);
@@ -26,4 +20,4 @@ public:
 	void display();
 };
 
-#endif // !HASHTABLE_CHAINING_H
+#endif

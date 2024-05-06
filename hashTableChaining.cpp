@@ -1,6 +1,6 @@
 #include "hashTableChaining.h"
 
-void HashTableChaining::resize(int newCapacity) {
+void HashTableChaining::resize(size_t newCapacity) {
 	Node** newTable = new Node * [newCapacity];
 	for (size_t i = 0; i < newCapacity; i++) {
 		newTable[i] = NULL;

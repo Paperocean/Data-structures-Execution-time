@@ -466,7 +466,6 @@ int main()
 	cout << "-----------------------------------" << endl;*/
 
 	HashTableChaining hashTab(20);
-
 	getchar();
 	return 0;
 }
