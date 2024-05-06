@@ -130,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="array.cpp" />
     <ClCompile Include="arrayMalloc.cpp" />
+    <ClCompile Include="hashTableChaining.cpp" />
     <ClCompile Include="linkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="queueArray.cpp" />
@@ -141,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="array.h" />
     <ClInclude Include="arrayMalloc.h" />
+    <ClInclude Include="hashTableChaining.h" />
     <ClInclude Include="LinkedList - instructions.txt" />
     <ClInclude Include="linkedList.h" />
     <ClInclude Include="Node.h" />

@@ -11,6 +11,7 @@
 #include "stackLinkedL.h"
 #include "queueArray.h"
 #include "queueLL.h"
+#include "hashTableChaining.h"
 
 using namespace std;
 
@@ -449,7 +450,7 @@ int main()
 	//cout << "-----------------------------------" << endl;
 
 	// TESTING QUEUE LINKED LIST
-	map<string, long long> resultsQL;
+	/*map<string, long long> resultsQL;
 
 	for (int i = 0; i < 50; i++) {
 		resultsQL["QueueArrayEnd"] += timeMeasureQueueLinkedList([](QueueLinkedList& list, int j) { list.enqueueEnd(j); }, i);
@@ -462,7 +463,9 @@ int main()
 	for (const auto& result : resultsQL) {
 		cout << result.first << ": " << result.second / 50 << endl;
 	}
-	cout << "-----------------------------------" << endl;
+	cout << "-----------------------------------" << endl;*/
+
+	HashTableChaining hashTab(20);
 
 	getchar();
 	return 0;

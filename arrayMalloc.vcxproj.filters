@@ -43,6 +43,12 @@
     <Filter Include="Pliki źródłowe\Queue">
       <UniqueIdentifier>{55ceac64-c945-4296-b087-7bb202b4d41a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Hash Table">
+      <UniqueIdentifier>{e38f543b-ee64-4095-95a8-d71b50f6e6bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Hash Table">
+      <UniqueIdentifier>{b13eff15-45ec-419e-bdbb-94b75361742b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,6 +78,9 @@
     <ClCompile Include="queueLL.cpp">
       <Filter>Pliki źródłowe\LinkedList</Filter>
     </ClCompile>
+    <ClCompile Include="hashTableChaining.cpp">
+      <Filter>Pliki źródłowe\Hash Table</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayMalloc.h">
@@ -97,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="Node.h">
       <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="hashTableChaining.h">
+      <Filter>Pliki nagłówkowe\Hash Table</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
