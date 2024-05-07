@@ -16,6 +16,7 @@
 #include "hashTableRobinHood.h"
 #include "hashTableDouble.h"
 #include "hashTableQuadric.h"
+#include "hashTableCuckoo.h"
 
 
 using namespace std;
@@ -352,6 +353,20 @@ long long timeMeasureHashTableRobinHood(function<void(HashTableRobinHood&, int, 
 	return duration.count() / 1000;
 }
 
+// HASH TABLE CUCKOO
+long long timeMeasureHashTableCuckoo(function<void(HashTableCuckoo&, int, int)> operation, int key, int value) {
+	auto start = chrono::high_resolution_clock::now();
+	for (size_t i = 0; i < 1000; i++) {
+		HashTableCuckoo hashTab(20);
+		for (int j = 0; j < value; j++) {
+			operation(hashTab, key, j);
+		}
+	}
+	auto end = chrono::high_resolution_clock::now();
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+	return duration.count() / 1000;
+}
+
 int main()
 {
 	//map<string, long long> resultsHT;
@@ -370,9 +385,11 @@ int main()
 	//}
 	//cout << "-----------------------------------" << endl;
 
-	vector<int> nums = { 50, 1000, 10000};
+	vector<int> nums = { 50, 100, 1000, 10000};
 
-	for (int k = 0; k < 3; k++) {
+	for (int k = 0; k < nums.size(); k++) {
+		cout << "-----------------------------------" << endl;
+		cout << "Number of elements: " << nums[k] << endl;
 		map<string, long long> resultsHT;
 
 		for (int i = 0; i < nums[k]; i++) {
@@ -381,6 +398,7 @@ int main()
 			resultsHT["HashTableQuadric"] += timeMeasureHashTableQuadric([](HashTableQuadric& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
 			resultsHT["HashTableDouble"] += timeMeasureHashTableDouble([](HashTableDouble& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
 			resultsHT["HashTableRobinHood"] += timeMeasureHashTableRobinHood([](HashTableRobinHood& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+			resultsHT["HashTableCuckoo"] += timeMeasureHashTableCuckoo([](HashTableCuckoo& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
 		}
 
 		cout << "-----------------------------------" << endl;

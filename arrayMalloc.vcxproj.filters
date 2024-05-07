@@ -75,9 +75,6 @@
     <ClCompile Include="queueArray.cpp">
       <Filter>Pliki źródłowe\Queue</Filter>
     </ClCompile>
-    <ClCompile Include="queueLL.cpp">
-      <Filter>Pliki źródłowe\LinkedList</Filter>
-    </ClCompile>
     <ClCompile Include="hashTableChaining.cpp">
       <Filter>Pliki źródłowe\Hash Table</Filter>
     </ClCompile>
@@ -94,7 +91,10 @@
       <Filter>Pliki źródłowe\Hash Table</Filter>
     </ClCompile>
     <ClCompile Include="hashTableCuckoo.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\Hash Table</Filter>
+    </ClCompile>
+    <ClCompile Include="queueLL.cpp">
+      <Filter>Pliki źródłowe\Queue</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

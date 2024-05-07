@@ -51,15 +51,11 @@ void HashTableCuckoo::rehash()
 	{
 		if (oldTable1[i] != -1)
 		{
-			int index = hash1(i);
-			table1[index] = oldTable1[i];
-			size++;
+			insert(i, oldTable1[i]);
 		}
 		if (oldTable2[i] != -1)
 		{
-			int index = hash2(i);
-			table2[index] = oldTable2[i];
-			size++;
+			insert(i, oldTable2[i]);
 		}
 	}
 	delete[] oldTable1;
@@ -67,11 +63,14 @@ void HashTableCuckoo::rehash()
 }
 
 void HashTableCuckoo::insert(int key, int value) {
+	if (size >= capacity * 0.7) {
+		rehash();
+	}
+
 	int index = hash1(key);
-	int distance = 0;
 	int* currentTable = table1;
 
-	while (distance < capacity) {
+	for (int i = 0; i < 10; i++) {
 		if (currentTable[index] == -1) {
 			currentTable[index] = value;
 			size++;
@@ -90,9 +89,9 @@ void HashTableCuckoo::insert(int key, int value) {
 			currentTable = table1;
 			index = hash1(key);
 		}
-
-		distance++;
 	}
+	rehash();
+	insert(key, value);
 }
 
 void HashTableCuckoo::remove(int key) {
