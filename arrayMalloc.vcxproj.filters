@@ -93,6 +93,9 @@
     <ClCompile Include="hashTableRobinHood.cpp">
       <Filter>Pliki źródłowe\Hash Table</Filter>
     </ClCompile>
+    <ClCompile Include="hashTableCuckoo.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayMalloc.h">
@@ -132,6 +135,9 @@
       <Filter>Pliki nagłówkowe\Hash Table</Filter>
     </ClInclude>
     <ClInclude Include="hashTableRobinHood.h">
+      <Filter>Pliki nagłówkowe\Hash Table</Filter>
+    </ClInclude>
+    <ClInclude Include="hashTableCuckoo.h">
       <Filter>Pliki nagłówkowe\Hash Table</Filter>
     </ClInclude>
   </ItemGroup>
