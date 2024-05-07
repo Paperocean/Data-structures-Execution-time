@@ -1,21 +1,21 @@
 #include "hashTableChaining.h"
 
 void HashTableChaining::resize(size_t newCapacity) {
-	Node** newTable = new Node * [newCapacity];
+	NodeHT** newTable = new NodeHT * [newCapacity];
 	for (size_t i = 0; i < newCapacity; i++) {
 		newTable[i] = NULL;
 	}
 	for (size_t i = 0; i < capacity; i++) {
-		Node* current = table[i];
+		NodeHT* current = table[i];
 		while (current != nullptr) {
-			Node* next = current->next;
+			NodeHT* next = current->next;
 			int index = current->key % newCapacity;
 			if (newTable[index] == NULL) {
 				newTable[index] = table[i];
 				current->next = nullptr;
 			}
 			else {
-				Node* temp = table[index];
+				NodeHT* temp = table[index];
 				while (temp->next != nullptr) {
 					temp = temp->next;
 				}
@@ -32,7 +32,7 @@ void HashTableChaining::resize(size_t newCapacity) {
 
 HashTableChaining::HashTableChaining(int capacity) {
 	this->capacity = capacity;
-	table = new Node * [capacity];
+	table = new NodeHT * [capacity];
 	for (size_t i = 0; i < capacity; i++) {
 		table[i] = NULL;
 	}
@@ -40,8 +40,8 @@ HashTableChaining::HashTableChaining(int capacity) {
 }
 
 HashTableChaining::~HashTableChaining() {
-	Node* current = table[0];
-	Node* next = nullptr;
+	NodeHT* current = table[0];
+	NodeHT* next = nullptr;
 	while (current != nullptr) {
 		next = current->next;
 		delete current;
@@ -61,19 +61,19 @@ void HashTableChaining::insert(int key, int value) {
 		resize(capacity * 2);
 	}
 	int index = hash(key);
-	Node* newNode = new Node;
-	newNode->key = key;
-	newNode->value = value;
-	newNode->next = nullptr;
+	NodeHT* newNodeHT = new NodeHT;
+	newNodeHT->key = key;
+	newNodeHT->value = value;
+	newNodeHT->next = nullptr;
 	if (table[index] == NULL) {
-		table[index] = newNode;
+		table[index] = newNodeHT;
 	}
 	else {
-		Node* current = table[index];
+		NodeHT* current = table[index];
 		while (current->next != nullptr) {
 			current = current->next;
 		}
-		current->next = newNode;
+		current->next = newNodeHT;
 	}
 	size++;
 }
@@ -84,7 +84,7 @@ int HashTableChaining::search(int key) {
 		return -1;
 	}
 	else {
-		Node* current = table[index];
+		NodeHT* current = table[index];
 		while (current != nullptr) {
 			if (current->key == key)
 				return current->value;
@@ -101,8 +101,8 @@ int HashTableChaining::remove(int key) {
 		return -1;
 	}
 	else {
-		Node* current = table[index];
-		Node* prev = nullptr;
+		NodeHT* current = table[index];
+		NodeHT* prev = nullptr;
 		while (current != nullptr) {
 			if (current->key == key) {
 				int value = current->value;
@@ -121,7 +121,7 @@ int HashTableChaining::remove(int key) {
 
 void HashTableChaining::display() {
 	for (size_t i = 0; i < capacity; i++) {
-		Node* current = table[i];
+		NodeHT* current = table[i];
 		cout << i << ": ";
 		while (current != nullptr) {
 			cout << " Key: " << current->key;

@@ -84,14 +84,14 @@
     <ClCompile Include="hashTableLinear.cpp">
       <Filter>Pliki źródłowe\Hash Table</Filter>
     </ClCompile>
-    <ClCompile Include="hashTableQuadric.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="hashTableDouble.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\Hash Table</Filter>
+    </ClCompile>
+    <ClCompile Include="hashTableQuadric.cpp">
+      <Filter>Pliki źródłowe\Hash Table</Filter>
     </ClCompile>
     <ClCompile Include="hashTableRobinHood.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\Hash Table</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -78,8 +78,8 @@ void HashTableDouble::remove(int key)
 	}
 	table[index] = -1;
 	size--;
-	if(size == capacity / 4)
-		resize(capacity / 2)
+	if (size == capacity / 4)
+		resize(capacity / 2);
 }
 
 void HashTableDouble::display() {

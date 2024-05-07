@@ -4,15 +4,15 @@
 #include <iostream>
 using namespace std;
 
-struct Node {
+struct NodeHT {
 	int key;
 	int value;
-	Node* next;
+	NodeHT* next;
 };
 
 class HashTableChaining {
 private:
-	Node** table;
+	NodeHT** table;
 	size_t size;
 	size_t capacity;
 	void resize(size_t newCapacity);
