@@ -283,7 +283,7 @@ long long timeMeasureQueueLinkedList(function<void(QueueLinkedList&, int)> opera
 }
 
 // HASH TABLE
-long long timeMeasureHashTableChaining(function<void(HashTableChaining&, int, int)> operation, int value, int key) {
+long long timeMeasureHashTableChaining(function<void(HashTableChaining&, int, int)> operation, int key, int value) {
 	auto start = chrono::high_resolution_clock::now();
 	for (size_t i = 0; i < 1000000; i++) {
 		HashTableChaining hashTab(20);
@@ -297,7 +297,7 @@ long long timeMeasureHashTableChaining(function<void(HashTableChaining&, int, in
 }
 
 // HASH TABLE LINEAR
-long long timeMeasureHashTableLinear(function<void(HashTableLinear&, int, int)> operation, int value, int key) {
+long long timeMeasureHashTableLinear(function<void(HashTableLinear&, int, int)> operation, int key, int value) {
 	auto start = chrono::high_resolution_clock::now();
 	for (size_t i = 0; i < 1000000; i++) {
 		HashTableLinear hashTab(20);
@@ -311,7 +311,7 @@ long long timeMeasureHashTableLinear(function<void(HashTableLinear&, int, int)> 
 }
 
 // HASH TABLE DOUBLE
-long long timeMeasureHashTableDouble(function<void(HashTableDouble&, int, int)> operation, int value, int key) {
+long long timeMeasureHashTableDouble(function<void(HashTableDouble&, int, int)> operation, int key, int value) {
 	auto start = chrono::high_resolution_clock::now();
 	for (size_t i = 0; i < 1000000; i++) {
 		HashTableDouble hashTab(20);
@@ -325,7 +325,7 @@ long long timeMeasureHashTableDouble(function<void(HashTableDouble&, int, int)> 
 }
 
 // HASH TABLE QUADRIC
-long long timeMeasureHashTableQuadric(function<void(HashTableQuadric&, int, int)> operation, int value, int key) {
+long long timeMeasureHashTableQuadric(function<void(HashTableQuadric&, int, int)> operation, int key, int value) {
 	auto start = chrono::high_resolution_clock::now();
 	for (size_t i = 0; i < 1000000; i++) {
 		HashTableQuadric hashTab(20);
@@ -339,7 +339,7 @@ long long timeMeasureHashTableQuadric(function<void(HashTableQuadric&, int, int)
 }
 
 // HASH TABLE ROBIN HOOD
-long long timeMeasureHashTableRobinHood(function<void(HashTableRobinHood&, int, int)> operation, int value, int key) {
+long long timeMeasureHashTableRobinHood(function<void(HashTableRobinHood&, int, int)> operation, int key, int value) {
 	auto start = chrono::high_resolution_clock::now();
 	for (size_t i = 0; i < 1000000; i++) {
 		HashTableRobinHood hashTab(20);
@@ -354,6 +354,22 @@ long long timeMeasureHashTableRobinHood(function<void(HashTableRobinHood&, int, 
 
 int main()
 {
+	//map<string, long long> resultsHT;
+
+	//for (int i = 0; i < 50; i++) {
+	//	resultsHT["HashTableChaining"] += timeMeasureHashTableChaining([](HashTableChaining& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//	//resultsHT["HashTableLinear"] += timeMeasureHashTableLinear([](HashTableLinear& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//	//resultsHT["HashTableDouble"] += timeMeasureHashTableDouble([](HashTableDouble& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//	//resultsHT["HashTableQuadric"] += timeMeasureHashTableQuadric([](HashTableQuadric& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//	//resultsHT["HashTableRobinHood"] += timeMeasureHashTableRobinHood([](HashTableRobinHood& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//}
+
+	//cout << "-----------------------------------" << endl;
+	//for (const auto& result : resultsHT) {
+	//	cout << result.first << ": " << result.second / 50 << endl;
+	//}
+	//cout << "-----------------------------------" << endl;
+
 	map<string, long long> resultsHT;
 
 	for (int i = 0; i < 50; i++) {

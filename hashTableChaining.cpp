@@ -122,13 +122,11 @@ int HashTableChaining::remove(int key) {
 void HashTableChaining::display() {
 	for (size_t i = 0; i < capacity; i++) {
 		NodeHT* current = table[i];
-		cout << i << ": ";
+		cout << "Key: " << i << ": ";
 		while (current != nullptr) {
-			cout << " Key: " << current->key;
 			if (current->value != NULL)
 				cout << " Value: " << current->value;
 			else cout << " Value: NULL";
-			cout << endl;
 			current = current->next;
 		}
 		cout << endl;
