@@ -1,10 +1,33 @@
 #include "hashTableRobinHood.h"
 
+void HashTableRobinHood::rehash(size_t newCapacity)
+{
+	int* oldTable = table;
+	int oldCapacity = capacity;
+
+	size = 0;
+	capacity = newCapacity;
+	table = new int[capacity];
+	for (int i = 0; i < capacity; i++) {
+		table[i] = -1;
+	}
+	for (int i = 0; i < oldCapacity; i++) {
+		if (oldTable[i] != -1) {
+			insert(i, oldTable[i]);
+		}
+	}
+
+	delete[] oldTable;
+}
+
 HashTableRobinHood::HashTableRobinHood(size_t capacity)
 {
 	this->capacity = capacity;
 	size = 0;
-	table = new TableEntry[capacity];
+	table = new int[capacity];
+	for (int i = 0; i < capacity; i++) {
+		table[i] = -1;
+	}
 }
 
 HashTableRobinHood::~HashTableRobinHood()
@@ -26,43 +49,42 @@ int HashTableRobinHood::hash2(int key)
 
 int HashTableRobinHood::probeDistance(int index)
 {
-	return (index - hash(table[index].key) + capacity) % capacity;
+	return (index - hash(index) + capacity) % capacity;
 }
 
 void HashTableRobinHood::insert(int key, int value) {
     int index = hash(key);
     int distance = 0;
 
-    while (table[index].key != -1) {
-        if (table[index].key == key) {
-            table[index].value = value;
-            return;
-        }
-        
-        // Rozproszenie
+    for(int i = 0; i < 10; i++) {
+		if (table[index] == -1) {
+			table[index] = value;
+			size++;
+			return;
+		}
+
+        // Scatter - minimaize the distance frome the ideal position
         int currentDistance = probeDistance(index);
         if (currentDistance < distance) {
-            std::swap(table[index].key, key);
-            std::swap(table[index].value, value);
+			std::swap(table[index], value);
             distance = currentDistance;
         }
 
-        index = (index + hash2(key)) % capacity;
+		index = (index + hash2(key)) % capacity;
         distance++;
     }
 
-    table[index].key = key;
-    table[index].value = value;
-    size++;
+	rehash(capacity * 2);
+    insert(key, value);
 }
 
 int HashTableRobinHood::search(int key) {
 	int index = hash(key);
 	int distance = 0;
 
-    while (table[index].key != -1) {
-        if (table[index].key == key) {
-			return table[index].value;
+    for(int i = 0; i < 10; i++) {
+        if (table[index] != -1) {
+			return table[index];
 		}
 
 		int currentDistance = probeDistance(index);
@@ -81,10 +103,9 @@ void HashTableRobinHood::remove(int key) {
 	int index = hash(key);
 	int distance = 0;
 
-    while (table[index].key != -1) {
-        if (table[index].key == key) {
-			table[index].key = -1;
-			table[index].value = -1;
+	for(int i = 0; i < 10; i++) {
+        if (table[index] != -1) {
+			table[index] = -1;
 			size--;
 			return;
 		}
@@ -97,14 +118,18 @@ void HashTableRobinHood::remove(int key) {
 		index = (index + hash2(key)) % capacity;
 		distance++;
 	}
+
+	if (size < capacity / 4) {
+		rehash(capacity / 2);
+	}
 }
 
 void HashTableRobinHood::display() {
 	for (size_t i = 0; i < capacity; i++) {
-		std::cout << i << ": ";
-		if (table[i].key != -1) {
-			std::cout << table[i].key << " " << table[i].value << " " << table[i].distance;
+		cout << i << ": ";
+		if (table[i] != -1) {
+			cout << i << " " << table[i];
 		}
-		std::cout << std::endl;
+		cout << endl;
 	}
 }

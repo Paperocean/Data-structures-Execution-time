@@ -4,30 +4,12 @@
 #include <iostream>
 using namespace std;
 
-struct TableEntry {
-	int key;
-	int value;
-	int distance;
-
-	TableEntry() {
-		key = -1;
-		value = -1;
-		distance = -1;
-	}
-
-	TableEntry(int key, int value, int distance) {
-		this->key = key;
-		this->value = value;
-		this->distance = distance;
-	}
-};
-
 class HashTableRobinHood{
 private:
-	TableEntry* table;
+	int* table;
 	size_t capacity;
 	size_t size;
-	void resize(size_t newCapacity);
+	void rehash(size_t newCapacity);
 public:
 	HashTableRobinHood(size_t capacity);
 	~HashTableRobinHood();

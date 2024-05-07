@@ -31,14 +31,14 @@ int HashTableCuckoo::hash2(int key)
 	return 1 + (key % (capacity - 1));
 }
 
-void HashTableCuckoo::rehash()
+void HashTableCuckoo::rehash(int newCapacity)
 {
 	int* oldTable1 = table1;
 	int* oldTable2 = table2;
 	int oldCapacity = capacity;
 
 	size = 0;
-	capacity *= 2;
+	capacity = newCapacity;
 	table1 = new int[capacity];
 	table2 = new int[capacity];
 	for (int i = 0; i < capacity; i++)
@@ -63,10 +63,6 @@ void HashTableCuckoo::rehash()
 }
 
 void HashTableCuckoo::insert(int key, int value) {
-	if (size >= capacity * 0.7) {
-		rehash();
-	}
-
 	int index = hash1(key);
 	int* currentTable = table1;
 
@@ -77,29 +73,27 @@ void HashTableCuckoo::insert(int key, int value) {
 			return;
 		}
 
-		int temp = currentTable[index];
-		currentTable[index] = value;
-		value = temp;
+		std::swap(currentTable[index], value);
 
 		if (currentTable == table1) {
 			currentTable = table2;
-			index = hash2(key);
+			index = (index + hash2(key)) % capacity;
 		}
 		else {
 			currentTable = table1;
 			index = hash1(key);
 		}
 	}
-	rehash();
+
+	rehash(capacity * 2);
 	insert(key, value);
 }
 
 void HashTableCuckoo::remove(int key) {
 	int index = hash1(key);
-	int distance = 0;
 	int* currentTable = table1;
 
-	while (distance < capacity) {
+	for(int i = 0; i < 10; i++) {
 		if (currentTable[index] != -1) {
 			currentTable[index] = -1;
 			size--;
@@ -108,23 +102,28 @@ void HashTableCuckoo::remove(int key) {
 
 		if (currentTable == table1) {
 			currentTable = table2;
-			index = hash2(key);
+			index = (index + hash2(key)) % capacity;
 		}
 		else {
 			currentTable = table1;
-			index = hash1(key);
+			index = (index + hash1(key)) % capacity;
 		}
+	}
 
-		distance++;
+	if (size <= capacity * 0.3) {
+		rehash(capacity / 2);
+		remove(key);
+	}
+	else {
+		cout << "Key not found" << endl;
 	}
 }
 
 bool HashTableCuckoo::search(int key) {
 	int index = hash1(key);
-	int distance = 0;
 	int* currentTable = table1;
 
-	while (distance < capacity) {
+	for(int i = 0; i < 10; i++) {
 		if (currentTable[index] != -1) {
 			return true;
 		}
@@ -137,10 +136,7 @@ bool HashTableCuckoo::search(int key) {
 			currentTable = table1;
 			index = hash1(key);
 		}
-
-		distance++;
 	}
-
 	return false;
 }
 

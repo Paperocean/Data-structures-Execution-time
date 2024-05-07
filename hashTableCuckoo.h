@@ -12,7 +12,7 @@ private:
 	int capacity;
 	int hash1(int key);
 	int hash2(int key);
-	void rehash();
+	void rehash(int newCapacity);
 public:
 	HashTableCuckoo(int capacity);
 	~HashTableCuckoo();

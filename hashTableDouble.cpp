@@ -2,22 +2,24 @@
 
 void HashTableDouble::resize(size_t newCapacity)
 {
-	int* newTable = new int[newCapacity];
-	for (size_t i = 0; i < newCapacity; i++) {
-		newTable[i] = -1;
+	int* oldTable = table;
+	int oldCapacity = capacity;
+
+	size = 0;
+	capacity = newCapacity;
+	table = new int[capacity];
+	for (int i = 0; i < capacity; i++)
+	{
+		table[i] = -1;
 	}
-	for (size_t i = 0; i < capacity; i++) {
-		if (table[i] != -1) {
-			int index = hash(i);
-			while (newTable[index] != -1) {
-				index = (index + hash2(index)) % newCapacity;
-			}
-			newTable[index] = table[i];
+	for (int i = 0; i < oldCapacity; i++)
+	{
+		if (oldTable[i] != -1)
+		{
+			insert(i, oldTable[i]);
 		}
 	}
-	delete[] table;
-	table = newTable;
-	capacity = newCapacity;
+	delete[] oldTable;
 }
 
 HashTableDouble::HashTableDouble(size_t capacity)

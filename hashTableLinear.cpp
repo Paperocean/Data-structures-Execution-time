@@ -1,22 +1,21 @@
 #include "hashTableLinear.h"
 
 void HashTableLinear::resize(size_t newCapacity) {
-	int* newTable = new int[newCapacity];
-	for (size_t i = 0; i < newCapacity; i++) {
-		newTable[i] = -1;
-	}
+	int* oldTable = table;
+	int oldCapacity = capacity;
+
+	size = 0;
+	capacity = newCapacity;
+	table = new int[capacity];
 	for (size_t i = 0; i < capacity; i++) {
-		if (table[i] != -1) {
-			int index = hash(i);
-			while (newTable[index] != -1) {
-				index = table[i] % newCapacity;
-			}
-			table[index] = table[i];
+		table[i] = -1;
+	}
+	for (size_t i = 0; i < oldCapacity; i++) {
+		if (oldTable[i] != -1) {
+			insert(i, oldTable[i]);
 		}
 	}
-	delete[] table;
-	table = newTable;
-	capacity = newCapacity;
+	delete[] oldTable;
 }
 
 HashTableLinear::HashTableLinear(size_t capacity)

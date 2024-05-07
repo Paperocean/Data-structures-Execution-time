@@ -57,9 +57,6 @@ int HashTableChaining::hash(int key) {
 }
 
 void HashTableChaining::insert(int key, int value) {
-	if (size >= capacity) {
-		resize(capacity * 2);
-	}
 	int index = hash(key);
 	NodeHT* newNodeHT = new NodeHT;
 	newNodeHT->key = key;
@@ -76,6 +73,10 @@ void HashTableChaining::insert(int key, int value) {
 		current->next = newNodeHT;
 	}
 	size++;
+
+	if (size >= capacity) {
+		resize(capacity * 2);
+	}
 }
 
 int HashTableChaining::search(int key) {
@@ -94,8 +95,6 @@ int HashTableChaining::search(int key) {
 }
 
 int HashTableChaining::remove(int key) {
-	if (size == capacity / 4)
-		resize(capacity / 2);
 	int index = hash(key);
 	if (table[index] == NULL) {
 		return -1;
@@ -117,6 +116,9 @@ int HashTableChaining::remove(int key) {
 			current = current->next;
 		}
 	}
+
+	if (size == capacity / 4)
+		resize(capacity / 2);
 }
 
 void HashTableChaining::display() {
