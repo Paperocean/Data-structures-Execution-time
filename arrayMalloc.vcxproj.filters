@@ -49,6 +49,9 @@
     <Filter Include="Pliki źródłowe\Hash Table">
       <UniqueIdentifier>{b13eff15-45ec-419e-bdbb-94b75361742b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Heap">
+      <UniqueIdentifier>{8fa082d3-2c86-4c63-a95d-0c20bd1fbbbe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -96,6 +99,9 @@
     <ClCompile Include="queueLL.cpp">
       <Filter>Pliki źródłowe\Queue</Filter>
     </ClCompile>
+    <ClCompile Include="heapBinary.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayMalloc.h">
@@ -139,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="hashTableCuckoo.h">
       <Filter>Pliki nagłówkowe\Hash Table</Filter>
+    </ClInclude>
+    <ClInclude Include="heapBinary.h">
+      <Filter>Pliki nagłówkowe\Heap</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

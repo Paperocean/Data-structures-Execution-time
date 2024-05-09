@@ -25,6 +25,7 @@ public:
 	void remove(int item);
 	int find(int item);
 	void display();
+	bool binarySearch(int item);
 	~Array();
 };
 

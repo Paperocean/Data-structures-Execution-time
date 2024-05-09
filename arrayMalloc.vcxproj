@@ -136,6 +136,7 @@
     <ClCompile Include="hashTableLinear.cpp" />
     <ClCompile Include="hashTableQuadric.cpp" />
     <ClCompile Include="hashTableRobinHood.cpp" />
+    <ClCompile Include="heapBinary.cpp" />
     <ClCompile Include="linkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="queueArray.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="hashTableLinear.h" />
     <ClInclude Include="hashTableQuadric.h" />
     <ClInclude Include="hashTableRobinHood.h" />
+    <ClInclude Include="heapBinary.h" />
     <ClInclude Include="LinkedList - instructions.txt" />
     <ClInclude Include="linkedList.h" />
     <ClInclude Include="Node.h" />

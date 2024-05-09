@@ -6,11 +6,15 @@
 
 #include "array.h"
 #include "arrayMalloc.h"
+
 #include "linkedList.h"
+
 #include "stackA.h"
 #include "stackLinkedL.h"
+
 #include "queueArray.h"
 #include "queueLL.h"
+
 #include "hashTableChaining.h"
 #include "hashTableLinear.h"
 #include "hashTableRobinHood.h"
@@ -18,6 +22,7 @@
 #include "hashTableQuadric.h"
 #include "hashTableCuckoo.h"
 
+#include "heapBinary.h"
 
 using namespace std;
 
@@ -385,7 +390,7 @@ int main()
 	//}
 	//cout << "-----------------------------------" << endl;
 
-	vector<int> nums = { 50, 100, 1000, 10000};
+	/*vector<int> nums = { 50, 100, 1000, 10000};
 
 	for (int k = 0; k < nums.size(); k++) {
 		cout << "-----------------------------------" << endl;
@@ -406,7 +411,18 @@ int main()
 			cout << result.first << ": " << result.second / nums[k] << endl;
 		}
 		cout << "-----------------------------------" << endl;
-	}
+	}*/
 
+	BinaryHeap bh;
+
+	bh.enqueue(1);
+	bh.enqueue(12);
+	bh.enqueue(7);
+	bh.enqueue(8);
+	bh.enqueue(9);
+	bh.display();
+
+	cout << boolalpha << "Is 7: " << bh.binarySearch(7) << endl;
+	cout << boolalpha << "Is 20: " << bh.binarySearch(20) << endl;
 	return 0;
 }
