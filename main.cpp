@@ -24,6 +24,9 @@
 
 #include "heapBinary.h"
 
+#include <fstream>
+#include <string>
+
 using namespace std;
 
 // ARRAY
@@ -372,6 +375,41 @@ long long timeMeasureHashTableCuckoo(function<void(HashTableCuckoo&, int, int)> 
 	return duration.count() / 1000;
 }
 
+// hash table remove
+template<typename HashTableType>
+long long timeMeasureHashTableRemove(std::function<void(HashTableType&, int)> operation, int key, int size) {
+	auto start = std::chrono::high_resolution_clock::now();
+	constexpr size_t numIterations = 1000;
+	for (size_t i = 0; i < numIterations; ++i) {
+		HashTableType hashTable(size + 1);
+		for (int j = 0; j < size; ++j) {
+			hashTable.insert(key, j);
+		}
+		operation(hashTable, key);
+	}
+	auto end = std::chrono::high_resolution_clock::now();
+	auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+	return duration.count() / numIterations;
+}
+
+
+void saveResultsToCSV(const map<string, long long>& results, int numElements) {
+	ofstream outputFile;
+	string filename = "saveResultsToCSV.csv";
+	outputFile.open(filename, ios::app);
+
+	if (!outputFile.is_open()) {
+		cerr << "Error: Couldn't open " << filename << " for writing." << endl;
+		return;
+	}
+
+	for (const auto& result : results) {
+		outputFile << numElements << "," << result.first << "," << result.second / numElements << endl;
+	}
+
+	outputFile.close();
+}
+
 int main()
 {
 	//map<string, long long> resultsHT;
@@ -390,7 +428,29 @@ int main()
 	//}
 	//cout << "-----------------------------------" << endl;
 
-	/*vector<int> nums = { 50, 100, 1000, 10000};
+	vector<int> nums = { 100, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000 };
+
+	//for (int k = 0; k < nums.size(); k++) {
+	//	cout << "-----------------------------------" << endl;
+	//	cout << "Number of elements: " << nums[k] << endl;
+	//	map<string, long long> resultsHT;
+
+	//	for (int i = 0; i < nums[k]; i++) {
+	//		resultsHT["HashTableChaining"] += timeMeasureHashTableChaining([](HashTableChaining& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//		//resultsHT["HashTableLinear"] += timeMeasureHashTableLinear([](HashTableLinear& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//		//resultsHT["HashTableQuadric"] += timeMeasureHashTableQuadric([](HashTableQuadric& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//		resultsHT["HashTableDouble"] += timeMeasureHashTableDouble([](HashTableDouble& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//		//resultsHT["HashTableRobinHood"] += timeMeasureHashTableRobinHood([](HashTableRobinHood& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//		resultsHT["HashTableCuckoo"] += timeMeasureHashTableCuckoo([](HashTableCuckoo& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+	//	}
+
+	//	/*cout << "-----------------------------------" << endl;
+	//	for (const auto& result : resultsHT) {
+	//		cout << result.first << ": " << result.second / k << endl;
+	//	}
+	//	cout << "-----------------------------------" << endl;*/
+	//	saveResultsToCSV(resultsHT, nums[k]);
+	//}
 
 	for (int k = 0; k < nums.size(); k++) {
 		cout << "-----------------------------------" << endl;
@@ -398,31 +458,24 @@ int main()
 		map<string, long long> resultsHT;
 
 		for (int i = 0; i < nums[k]; i++) {
-			resultsHT["HashTableChaining"] += timeMeasureHashTableChaining([](HashTableChaining& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
-			resultsHT["HashTableLinear"] += timeMeasureHashTableLinear([](HashTableLinear& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
-			resultsHT["HashTableQuadric"] += timeMeasureHashTableQuadric([](HashTableQuadric& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
-			resultsHT["HashTableDouble"] += timeMeasureHashTableDouble([](HashTableDouble& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
-			resultsHT["HashTableRobinHood"] += timeMeasureHashTableRobinHood([](HashTableRobinHood& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
-			resultsHT["HashTableCuckoo"] += timeMeasureHashTableCuckoo([](HashTableCuckoo& hashTab, int key, int j) { hashTab.insert(key, j); }, i, 1);
+			resultsHT["HashTableChaining"] += timeMeasureHashTableRemove<HashTableChaining>([](HashTableChaining& hashTab, int key) { hashTab.remove(key); }, i, nums[k]);
+			resultsHT["HashTableDouble"] += timeMeasureHashTableRemove<HashTableDouble>([](HashTableDouble& hashTab, int key) { hashTab.remove(key); }, i, nums[k]);
+			resultsHT["HashTableCuckoo"] += timeMeasureHashTableRemove<HashTableCuckoo>([](HashTableCuckoo& hashTab, int key) { hashTab.remove(key); }, i, nums[k]);
 		}
 
-		cout << "-----------------------------------" << endl;
-		for (const auto& result : resultsHT) {
-			cout << result.first << ": " << result.second / nums[k] << endl;
-		}
-		cout << "-----------------------------------" << endl;
-	}*/
+		saveResultsToCSV(resultsHT, nums[k]);
+	}
 
-	BinaryHeap bh;
+	//BinaryHeap bh;
 
-	bh.enqueue(1);
-	bh.enqueue(12);
-	bh.enqueue(7);
-	bh.enqueue(8);
-	bh.enqueue(9);
-	bh.display();
+	//bh.enqueue(1);
+	//bh.enqueue(12);
+	//bh.enqueue(7);
+	//bh.enqueue(8);
+	//bh.enqueue(9);
+	//bh.display();
 
-	cout << boolalpha << "Is 7: " << bh.binarySearch(7) << endl;
-	cout << boolalpha << "Is 20: " << bh.binarySearch(20) << endl;
+	//cout << boolalpha << "Is 7: " << bh.binarySearch(7) << endl;
+	//cout << boolalpha << "Is 20: " << bh.binarySearch(20) << endl;
 	return 0;
 }
