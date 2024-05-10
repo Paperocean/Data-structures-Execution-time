@@ -3,6 +3,8 @@
 #include <vector>
 #include <map>
 #include <functional>
+#include <fstream>
+#include <string>
 
 #include "array.h"
 #include "arrayMalloc.h"
@@ -24,8 +26,9 @@
 
 #include "heapBinary.h"
 
-#include <fstream>
-#include <string>
+#include "matrixAdjacency.h"
+#include "listAdjacency.h"
+
 
 using namespace std;
 
@@ -428,7 +431,7 @@ int main()
 	//}
 	//cout << "-----------------------------------" << endl;
 
-	vector<int> nums = { 100, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000 };
+	//vector<int> nums = { 100, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000 };
 
 	//for (int k = 0; k < nums.size(); k++) {
 	//	cout << "-----------------------------------" << endl;
@@ -452,7 +455,7 @@ int main()
 	//	saveResultsToCSV(resultsHT, nums[k]);
 	//}
 
-	for (int k = 0; k < nums.size(); k++) {
+	/*for (int k = 0; k < nums.size(); k++) {
 		cout << "-----------------------------------" << endl;
 		cout << "Number of elements: " << nums[k] << endl;
 		map<string, long long> resultsHT;
@@ -464,7 +467,7 @@ int main()
 		}
 
 		saveResultsToCSV(resultsHT, nums[k]);
-	}
+	}*/
 
 	//BinaryHeap bh;
 
@@ -477,5 +480,28 @@ int main()
 
 	//cout << boolalpha << "Is 7: " << bh.binarySearch(7) << endl;
 	//cout << boolalpha << "Is 20: " << bh.binarySearch(20) << endl;
+
+	MatrixAdjacency matrix(10);
+	ListAdjacency list(10);
+
+	matrix.addEdge(0, 1, 1);
+	matrix.addEdge(1, 2, 2);
+	matrix.addEdge(2, 3, 3);
+	matrix.addEdge(3, 0, 4);
+
+	list.addEdge(0, 1, 1);
+	list.addEdge(1, 2, 2);
+	list.addEdge(2, 3, 3);
+	list.addEdge(3, 0, 4);
+
+	list.setVertexLabel(0, "A");
+	list.setVertexLabel(1, "B");
+	list.setVertexLabel(2, "C");
+	list.setVertexLabel(3, "D");
+
+	matrix.printMatrix();
+	//list.printList();
+	list.displayEdges();
+
 	return 0;
 }

@@ -139,7 +139,9 @@
     <ClCompile Include="hashTableRobinHood.cpp" />
     <ClCompile Include="heapBinary.cpp" />
     <ClCompile Include="linkedList.cpp" />
+    <ClCompile Include="listAdjacency.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="matrixAdjacency.cpp" />
     <ClCompile Include="queueArray.cpp" />
     <ClCompile Include="queueLL.cpp" />
     <ClCompile Include="stackArray.cpp" />
@@ -159,6 +161,8 @@
     <ClInclude Include="heapBinary.h" />
     <ClInclude Include="LinkedList - instructions.txt" />
     <ClInclude Include="linkedList.h" />
+    <ClInclude Include="listAdjacency.h" />
+    <ClInclude Include="matrixAdjacency.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="queueArray.h" />
     <ClInclude Include="queueLL.h" />

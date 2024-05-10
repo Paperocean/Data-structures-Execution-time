@@ -34,12 +34,6 @@
     <Filter Include="Pliki źródłowe\Stack">
       <UniqueIdentifier>{d1fe3f15-6fe9-4816-b164-0f480a9c20d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki nagłówkowe\Sorting Algorithms">
-      <UniqueIdentifier>{7bc6662f-1360-40b3-8a29-b4fff59683a6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Pliki nagłówkowe\Search Algorithms">
-      <UniqueIdentifier>{2bee73bb-5c6f-4c65-bdd9-66e7f77d883c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Pliki źródłowe\Queue">
       <UniqueIdentifier>{55ceac64-c945-4296-b087-7bb202b4d41a}</UniqueIdentifier>
     </Filter>
@@ -114,6 +108,12 @@
     <ClCompile Include="binarySearchTree.cpp">
       <Filter>Pliki źródłowe\Graphs</Filter>
     </ClCompile>
+    <ClCompile Include="matrixAdjacency.cpp">
+      <Filter>Pliki źródłowe\Graphs</Filter>
+    </ClCompile>
+    <ClCompile Include="listAdjacency.cpp">
+      <Filter>Pliki źródłowe\Graphs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayMalloc.h">
@@ -162,6 +162,12 @@
       <Filter>Pliki nagłówkowe\Heap</Filter>
     </ClInclude>
     <ClInclude Include="binarySearchTree.h">
+      <Filter>Pliki nagłówkowe\Graphs</Filter>
+    </ClInclude>
+    <ClInclude Include="matrixAdjacency.h">
+      <Filter>Pliki nagłówkowe\Graphs</Filter>
+    </ClInclude>
+    <ClInclude Include="listAdjacency.h">
       <Filter>Pliki nagłówkowe\Graphs</Filter>
     </ClInclude>
   </ItemGroup>

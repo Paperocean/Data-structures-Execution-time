@@ -15,6 +15,10 @@ private:
 	Node* root;
 	int size;
 
+	/*
+	I dont understand how the remove function works, also the succesor and predecessor functions...
+	*/
+
 	void display(Node* current);
 	bool search(Node* current, int value);
 	int getHeight(Node* current);
