@@ -52,6 +52,15 @@
     <Filter Include="Pliki nagłówkowe\Heap">
       <UniqueIdentifier>{8fa082d3-2c86-4c63-a95d-0c20bd1fbbbe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\Heap">
+      <UniqueIdentifier>{56ea3019-0482-4bed-a76e-f680a5f87d60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Graphs">
+      <UniqueIdentifier>{06d02860-6f5f-4d20-b29c-7a77cad19e93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Graphs">
+      <UniqueIdentifier>{84cd08b0-b58a-4d71-8b30-b0bd1031b5a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -100,7 +109,10 @@
       <Filter>Pliki źródłowe\Queue</Filter>
     </ClCompile>
     <ClCompile Include="heapBinary.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\Heap</Filter>
+    </ClCompile>
+    <ClCompile Include="binarySearchTree.cpp">
+      <Filter>Pliki źródłowe\Graphs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="heapBinary.h">
       <Filter>Pliki nagłówkowe\Heap</Filter>
+    </ClInclude>
+    <ClInclude Include="binarySearchTree.h">
+      <Filter>Pliki nagłówkowe\Graphs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
